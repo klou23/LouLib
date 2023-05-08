@@ -64,7 +64,7 @@ namespace LouLib {
             constexpr explicit BaseUnit(double val) : value(val){}
 
             /**
-             * Increment Operator
+             * Addition Assignment Operator
              */
             constexpr BaseUnit const& operator+=(const BaseUnit& a){
                 if(!sameDim(a)){
@@ -75,13 +75,29 @@ namespace LouLib {
             }
 
             /**
-             * Decrement Operator
+             * Subtraction Assignment Operator
              */
             constexpr BaseUnit const& operator-=(const BaseUnit& a){
                 if(!sameDim(a)){
                     throw std::invalid_argument("Dimensions do not match");
                 }
                 value -= a.val();
+                return *this;
+            }
+
+            /**
+             * Scalar Multiplication Assignment Operator
+             */
+             constexpr BaseUnit const& operator*=(const double& a){
+                 value *= a;
+                 return *this;
+             }
+
+            /**
+             * Scalar Division Assignment Operator
+             */
+            constexpr BaseUnit const& operator/=(const double& a){
+                value /= a;
                 return *this;
             }
 
