@@ -30,6 +30,10 @@ namespace LouLib {
             return (int) data.size();
         }
 
+        Vector Matrix::MatrixRow::getVector() {
+            return Vector(data);
+        }
+
         Matrix::Matrix(int rows, int cols) {
             data.resize(rows, MatrixRow(cols));
         }
@@ -107,6 +111,88 @@ namespace LouLib {
             return std::sqrt(sol);
         }
 
-        
+        Matrix operator+(const Matrix &a, const Matrix &b) {
+            if(a.rows() != b.rows() || a.cols() != b.cols()){
+                throw std::invalid_argument("Matrix dimensions don't match");
+            }
+            Matrix sol(a.rows(), a.cols());
+            for(int i = 0; i < a.rows(); i++){
+                for(int j = 0; j < a.cols(); j++){
+                    sol[i][j] = a[i][j] + b[i][j];
+                }
+            }
+            return sol;
+        }
+
+        Matrix operator-(const Matrix &a, const Matrix &b) {
+            if(a.rows() != b.rows() || a.cols() != b.cols()){
+                throw std::invalid_argument("Matrix dimensions don't match");
+            }
+            Matrix sol(a.rows(), a.cols());
+            for(int i = 0; i < a.rows(); i++){
+                for(int j = 0; j < a.cols(); j++){
+                    sol[i][j] = a[i][j] - b[i][j];
+                }
+            }
+            return sol;
+        }
+
+        Matrix operator*(const Matrix &a, const Matrix &b) {
+            if(a.cols() != b.rows()){
+                throw std::invalid_argument("Matrix dimensions can't be multiplied");
+            }
+
+            Matrix sol(a.rows(), b.cols());
+
+            for(int i = 0; i < a.rows(); i++){
+                for(int j = 0; j < b.cols(); j++){
+                    double sum = 0;
+                    for(int k = 0; k < a.cols(); k++){
+                        sum += a[i][k] * b[k][j];
+                    }
+                    sol[i][j] = sum;
+                }
+            }
+
+            return sol;
+        }
+
+        Matrix operator*(const Matrix &a, const double &b) {
+            Matrix sol(a.rows(), a.cols());
+            for(int i = 0; i < a.rows(); i++){
+                for(int j = 0; j < a.cols(); i++){
+                    sol[i][j] = b * a[i][j];
+                }
+            }
+            return sol;
+        }
+
+        Matrix operator*(const double &a, const Matrix &b) {
+            Matrix sol(b.rows(), b.cols());
+            for(int i = 0; i < b.rows(); i++){
+                for(int j = 0; j < b.cols(); j++){
+                    sol[i][j] = a * b[i][j];
+                }
+            }
+            return sol;
+        }
+
+        Vector operator*(const Matrix &a, const Vector &b) {
+            if(a.cols() != b.size()){
+                throw std::invalid_argument("Matrix and vector dimensions can't be multiplied");
+            }
+
+            Vector sol(a.rows());
+            for(int i = 0; i < a.rows(); i++){
+                double sum = 0;
+                for(int j = 0; j < a.cols(); j++){
+                    sum += a[i][j] * b[j];
+                }
+                sol[i] = sum;
+            }
+
+            return sol;
+        }
+
     } // LouLib
 } // Math

@@ -30,8 +30,6 @@
 #include <vector>
 #include <stdexcept>
 #include <cmath>
-#include "MathConstants.hpp"
-#include "MathFunctions.hpp"
 
 namespace LouLib {
     namespace Math {

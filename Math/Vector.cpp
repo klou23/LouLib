@@ -25,7 +25,6 @@
  */
 
 #include "Vector.hpp"
-
 #include <utility>
 
 namespace LouLib {

@@ -4,8 +4,6 @@
 #include <vector>
 #include "Vector.hpp"
 #include <stdexcept>
-#include "MathConstants.hpp"
-#include "MathFunctions.hpp"
 
 namespace LouLib {
     namespace Math {
@@ -53,6 +51,11 @@ namespace LouLib {
                  * Returns the number of elements in the matrix row
                  */
                 int size() const;
+
+                /**
+                 * Returns the row as a Vector
+                 */
+                 Vector getVector();
             };
 
             std::vector<MatrixRow> data;
@@ -131,6 +134,42 @@ namespace LouLib {
              */
             double norm();
         };
+
+        /**
+         * Operator for the sum of two matrices
+         * @throws std::invalid_argument if matrix dimensions do not match
+         */
+        Matrix operator+(const Matrix& a, const Matrix& b);
+
+        /**
+         * Operator for the difference of two matrices
+         * @throws std::invalid_argument if matrix dimensions do not match
+         */
+        Matrix operator-(const Matrix& a, const Matrix& b);
+
+        /**
+         * Operator for the product of two matrices
+         * @throws std::invalid_argument if matrix dimensions can't be multiplied
+         */
+        Matrix operator*(const Matrix& a, const Matrix& b);
+
+        /**
+         * Operator for scalar multiplication with matrix first
+         * @return The result of the scalar multiplication
+         */
+        Matrix operator*(const Matrix& a, const double& b);
+
+        /**
+         * Operator for scaler multiplication with scalar first
+         * @return The result of the scalar multiplication
+         */
+        Matrix operator*(const double& a, const Matrix& b);
+
+        /**
+         * Operator for matrix-vector multiplication
+         * @throws std::invalid_argument if matrix and vector dimensions can't be multiplied
+         */
+        Vector operator*(const Matrix& a, const Vector& b);
 
     } // LouLib
 } // Math
