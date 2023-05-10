@@ -18,7 +18,7 @@ namespace LouLib {
                 /**
                  * Constructs a new matrix row of the given size
                  */
-                MatrixRow(int n);
+                explicit MatrixRow(int n);
 
                 /**
                  * Constructs a new matrix row with the given data
@@ -28,7 +28,7 @@ namespace LouLib {
                 /**
                  * Constructs a new matrix row with the given data
                  */
-                MatrixRow(std::vector<double> rowData);
+                explicit MatrixRow(std::vector<double> rowData);
 
                 /**
                  * Constructs a new matrix row that is a copy of the given row
@@ -133,6 +133,28 @@ namespace LouLib {
              * Calculates the frobenius norm of the matrix
              */
             double norm();
+
+            /**
+             * Calculates the determinant of the matrix using the Laplace expansion
+             * @throws std::invalid_argument if the matrix is not square
+             */
+            double det();
+
+            /**
+             * Computes the i,j minor of the matrix
+             */
+            Matrix minor(int i, int j);
+
+            /**
+             * Computes the i,j cofactor of the matrix
+             */
+            double cofactor(int i, int j);
+
+            /**
+             * Computes the matrix inverse using the adjoint matrix
+             */
+            Matrix inverse();
+
         };
 
         /**

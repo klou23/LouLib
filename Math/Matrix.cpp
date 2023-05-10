@@ -111,6 +111,57 @@ namespace LouLib {
             return std::sqrt(sol);
         }
 
+        double Matrix::det() {
+            if(rows() != cols()){
+                throw std::invalid_argument("Cannot calculate determinant of a non-square matrix");
+            }
+
+            if(rows() == 2){
+                return data[0][0]*data[1][1]-data[1][0]*data[0][1];
+            }
+
+            double sol = 0;
+            for(int i = 0; i < rows(); i++){
+                sol += (data[i][0]) * cofactor(i, 0);
+            }
+            return sol;
+        }
+
+        Matrix Matrix::minor(int i, int j){
+            Matrix sol(rows()-1, cols()-1);
+            for(int r = 0; r < rows(); r++){
+                if(r == i) continue;
+                int newR = (r < i) ? r : r-1;
+                for(int c = 0; c < cols(); c++){
+                    if(c == j) continue;
+                    int newC = (c < j) ? c : c-1;
+                    sol[newR][newC] = data[c][r];
+                }
+            }
+            return sol;
+        }
+
+        double Matrix::cofactor(int i, int j) {
+            return std::pow(-1, i+j) * minor(i, j).det();
+        }
+
+        Matrix Matrix::inverse() {
+            Matrix cofactorMatrix(rows(), cols());
+            for(int i = 0; i < rows(); i++){
+                for(int j = 0; j < cols(); j++){
+                    cofactorMatrix[i][j] = cofactor(i, j);
+                }
+            }
+            Matrix sol = cofactorMatrix.transpose();
+            double determinant = det();
+            for(int i = 0; i < sol.rows(); i++){
+                for(int j = 0; j < sol.cols(); j++){
+                    sol[i][j] /= determinant;
+                }
+            }
+            return sol;
+        }
+
         Matrix operator+(const Matrix &a, const Matrix &b) {
             if(a.rows() != b.rows() || a.cols() != b.cols()){
                 throw std::invalid_argument("Matrix dimensions don't match");
@@ -193,6 +244,7 @@ namespace LouLib {
 
             return sol;
         }
+
 
     } // LouLib
 } // Math
