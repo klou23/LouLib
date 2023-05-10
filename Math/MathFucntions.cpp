@@ -1,7 +1,7 @@
 /**
- * MathFunctions.hpp
+ * MathFunctions.cpp
  *
- * Contains commonly used math functions
+ * Contains implementations of commonly used math functions
  *
  * Copyright (c) 2023 Kevin Lou
  *
@@ -24,16 +24,15 @@
  * SOFTWARE.
  */
 
-#ifndef LOULIB_MATHFUNCTIONS_HPP
-#define LOULIB_MATHFUNCTIONS_HPP
+#include "MathFunctions.hpp"
 
 namespace LouLib{
     namespace Math{
-        /**
-         * Returns the sign of a number
-         */
-         int signum(double a);
+
+        int signum(double a){
+            if(a == 0) return 0;
+            return a > 0 ? 1 : -1;
+        }
+
     }
 }
-
-#endif //LOULIB_MATHFUNCTIONS_HPP
