@@ -1,7 +1,7 @@
 /**
- * PiecewisePolynomialPart.hpp
+ * PiecewisePolynomial.hpp
  *
- * Implementation file for the PiecewisePolynomialPart class
+ * Header file for the PiecewisePolynomial class
  *
  * Copyright (c) 2023 Kevin Lou
  *
@@ -24,34 +24,42 @@
  * SOFTWARE.
  */
 
+#ifndef LOULIB_PIECEWISEPOLYNOMIAL_HPP
+#define LOULIB_PIECEWISEPOLYNOMIAL_HPP
+
+#include <vector>
 #include "PiecewisePolynomialPart.hpp"
+#include <stdexcept>
 
-#include <utility>
+namespace LouLib{
+    namespace Math{
+        class PiecewisePolynomial {
+        private:
 
-namespace LouLib {
-    namespace Math {
+            std::vector<PiecewisePolynomialPart> pieces;
 
-        PiecewisePolynomialPart::PiecewisePolynomialPart(Polynomial p, int start, int end) :
-                p(std::move(p)), start(start), end(end) {}
+            /**
+             * Inserts
+             * @param p
+             */
+            void insert(PiecewisePolynomialPart p);
 
-        Polynomial PiecewisePolynomialPart::getPolynomial() {
-            return p;
-        }
+        public:
 
-        double PiecewisePolynomialPart::getStart() const {
-            return start;
-        }
+            PiecewisePolynomial();
 
-        double PiecewisePolynomialPart::getEnd() const {
-            return end;
-        }
+            explicit PiecewisePolynomial(std::vector<PiecewisePolynomialPart> p);
 
-        double PiecewisePolynomialPart::evaluate(double t) {
-            if(t < start || t > end){
-                throw std::invalid_argument("Outside of range of piecewise part");
-            }
-            return p.evaluate(t);
-        }
+            /**
+             * Returns the piecewise polynomial part that corresponds to the given x-value.
+             * @throw std::invalid_argument if there is no part corresponding to the given x-value.
+             */
+            PiecewisePolynomialPart getPart(double x);
 
-    } // LouLib
-} // Math
+            double evaluate(double x);
+        };
+    }
+}
+
+
+#endif //LOULIB_PIECEWISEPOLYNOMIAL_HPP

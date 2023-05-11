@@ -50,7 +50,7 @@ namespace LouLib {
 
             double getEnd() const;
 
-            double evaluate(int t);
+            double evaluate(double t);
         };
 
     } // LouLib
