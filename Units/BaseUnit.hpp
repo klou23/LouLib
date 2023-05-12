@@ -45,7 +45,7 @@ namespace LouLib {
              */
             template <typename L, typename M, typename t, typename Q,
                     typename T, typename N, typename J, typename A>
-            bool sameDim(const BaseUnit<L, M, t, Q, T, N, J, A>& a){
+            constexpr bool sameDim(const BaseUnit<L, M, t, Q, T, N, J, A>& a) const{
                 if(!std::ratio_equal<lengthDim, L>::value) return false;
                 if(!std::ratio_equal<massDim, M>::value) return false;
                 if(!std::ratio_equal<timeDim, t>::value) return false;
