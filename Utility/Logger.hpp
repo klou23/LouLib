@@ -40,7 +40,7 @@ namespace LouLib{
 
             Logger();
 
-            Logger(std::string logFile, std::string fileType);
+            Logger(std::string logFile, std::string fileType = "txt");
 
             void log(std::string message, bool endl = false);
 

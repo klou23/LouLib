@@ -25,16 +25,18 @@
  */
 
 #include "Logger.hpp"
+#include <iostream>
 
-LouLib::Utility::Logger::Logger() : Logger("Log", "txt"){}
+LouLib::Utility::Logger::Logger() : Logger("log", "txt"){}
 
 LouLib::Utility::Logger::Logger(std::string logFile, std::string fileType) {
     std::ifstream check("/usd/" + logFile + "." + fileType);
     if(!check.good()){
         fout.open("/usd/" + logFile + "." + fileType);
     }else{
-        int i = 1;
+        int i = 0;
         do{
+            i++;
             check.close();
             check.open("/usd/" + logFile + "(" + std::to_string(i) + ")." + fileType);
         }while(check.good());
@@ -46,6 +48,7 @@ LouLib::Utility::Logger::Logger(std::string logFile, std::string fileType) {
 void LouLib::Utility::Logger::log(std::string message, bool endl) {
     fout << message;
     if(endl) fout << std::endl;
+    fout.flush();
 }
 
 void LouLib::Utility::Logger::close() {
