@@ -112,7 +112,7 @@ namespace LouLib {
              * Conversion operator
              * @return the value of the quantity in the specified unit
              */
-            constexpr double convert(const BaseUnit& a) const{
+            constexpr double to(const BaseUnit& a) const{
                 if(!sameDim(a)){
                     throw std::invalid_argument("Dimensions do not match");
                 }
