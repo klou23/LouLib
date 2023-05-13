@@ -105,7 +105,7 @@ namespace LouLib{
                 const BaseUnit<L1, M1, t1, Q1, T1, N1, J1, A1>& a,
                 const BaseUnit<L2, M2, t2, Q2, T2, N2, J2, A2>& b
         ){
-            BaseUnit<std::ratio_subtract<L1, L2>,
+            return BaseUnit<std::ratio_subtract<L1, L2>,
                     std::ratio_subtract<M1, M2>,
                     std::ratio_subtract<t1, t2>,
                     std::ratio_subtract<Q1, Q2>,
