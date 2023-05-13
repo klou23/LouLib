@@ -162,6 +162,16 @@ namespace LouLib {
             return sol;
         }
 
+        std::string Matrix::toString() {
+            std::string sol = "{";
+            for(int i = 0; i < rows(); i++){
+                sol += data[i].getVector().toString();
+                if(i != rows()-1) sol += ",\n";
+            }
+            sol += "}";
+            return sol;
+        }
+
         Matrix operator+(const Matrix &a, const Matrix &b) {
             if(a.rows() != b.rows() || a.cols() != b.cols()){
                 throw std::invalid_argument("Matrix dimensions don't match");

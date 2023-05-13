@@ -155,6 +155,8 @@ namespace LouLib {
              */
             Matrix inverse();
 
+            std::string toString();
+
         };
 
         /**

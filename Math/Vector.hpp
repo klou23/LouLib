@@ -90,6 +90,8 @@ namespace LouLib {
              * but a magnitude of 1
              */
             Vector normalize();
+
+            std::string toString();
         };
 
         /**

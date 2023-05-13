@@ -75,6 +75,16 @@ namespace LouLib {
             return result;
         }
 
+        std::string Vector::toString() {
+            std::string sol = "{";
+            for(int i = 0; i < data.size(); i++){
+                sol += std::to_string(data[i]);
+                if(i != data.size()-1) sol += ", ";
+            }
+            sol += "}";
+            return sol;
+        }
+
         Vector operator+(const Vector &a, const Vector &b) {
             if(a.size() != b.size()){
                 throw std::invalid_argument("Vectors must have the same size.");
