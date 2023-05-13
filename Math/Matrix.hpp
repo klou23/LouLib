@@ -113,6 +113,11 @@ namespace LouLib {
             Vector getCol(int i);
 
             /**
+             * Gets a specified row vector of the matrix
+             */
+             Vector getRow(int i);
+
+            /**
              * Gets the number of rows of the matrix
              * @return number of rows of the matrix
              */

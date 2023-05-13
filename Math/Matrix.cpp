@@ -73,7 +73,7 @@ namespace LouLib {
         }
 
         Vector Matrix::getCol(int i) {
-            if(i <= 0 || i >= cols()){
+            if(i < 0 || i >= cols()){
                 throw std::invalid_argument("Index out of bounds");
             }
             Vector sol(rows());
@@ -81,6 +81,13 @@ namespace LouLib {
                 sol[j] = data[j][i];
             }
             return sol;
+        }
+
+        Vector Matrix::getRow(int i) {
+            if(i < 0 || i >= data.size()){
+                throw std::invalid_argument("Index out of bounds");
+            }
+            return data[i].getVector();
         }
 
         int Matrix::rows() const {
