@@ -49,7 +49,7 @@ namespace LouLib{
                 return static_cast<double>(x)*unit;                         \
             }
 
-            CREATE_TORQUE_STRING_LITERAL(_NM, NEWTON_METER);
+            CREATE_TORQUE_STRING_LITERAL(_Nm, NEWTON_METER);
         }
     }
 }
