@@ -68,7 +68,7 @@ namespace LouLib {
 
             double getOutput();
 
-            void update(double _error);
+            void update(double measurement);
 
         };
 

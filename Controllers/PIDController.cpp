@@ -72,6 +72,9 @@ namespace LouLib {
         }
 
         void PIDController::setSetpoint(double _setpoint) {
+            error = (1<<30);
+            derivative = 0;
+            integral = 0;
             setpoint = _setpoint;
         }
 
@@ -80,10 +83,13 @@ namespace LouLib {
         }
 
         double PIDController::getOutput() {
-            return kp*error + ki*integral + kd*derivative;
+            double output = kp*error + ki*integral + kd*derivative;
+            return Math::clamp(output, minOutput, maxOutput);
         }
 
-        void PIDController::update(double _error) {
+        void PIDController::update(double measurement) {
+
+            double _error = setpoint - measurement;
 
             if(error == (1<<30)) derivative = 0;
             else derivative = (_error - error)/deltaTime;
