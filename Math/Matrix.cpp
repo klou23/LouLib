@@ -142,7 +142,7 @@ namespace LouLib {
                 for(int c = 0; c < cols(); c++){
                     if(c == j) continue;
                     int newC = (c < j) ? c : c-1;
-                    sol[newR][newC] = data[c][r];
+                    sol[newR][newC] = data[r][c];
                 }
             }
             return sol;
