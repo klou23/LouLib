@@ -33,6 +33,11 @@ namespace LouLib{
          * Returns the sign of a number
          */
          int signum(double a);
+
+         /**
+          * Returns the value clamped between the max and min
+          */
+          double clamp(double val, double min, double max);
     }
 }
 
