@@ -89,7 +89,7 @@ namespace LouLib {
             else derivative = (_error - error)/deltaTime;
 
             if(error >= integratorMin && error <= integratorMax){
-                integral += error;
+                integral += error*deltaTime;
             }else{
                 integral = 0;
             }
