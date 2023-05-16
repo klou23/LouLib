@@ -1,7 +1,7 @@
 /**
- * MathFunctions.hpp
+ * TBHController.hpp
  *
- * Contains commonly used math functions
+ * Header file for the TBHController class
  *
  * Copyright (c) 2023 Kevin Lou
  *
@@ -24,21 +24,41 @@
  * SOFTWARE.
  */
 
-#ifndef LOULIB_MATHFUNCTIONS_HPP
-#define LOULIB_MATHFUNCTIONS_HPP
+#ifndef LOULIB_TBHCONTROLLER_HPP
+#define LOULIB_TBHCONTROLLER_HPP
 
-namespace LouLib{
-    namespace Math{
-        /**
-         * Returns the sign of a number
-         */
-         int signum(double a);
+#include "../Units/Time.hpp"
 
-         /**
-          * Returns the value clamped between the max and min
-          */
-          double clamp(double val, double min, double max);
-    }
-}
+namespace LouLib {
+    namespace Controllers {
 
-#endif //LOULIB_MATHFUNCTIONS_HPP
+        class TBHController {
+        private:
+            double k;
+            double setpoint;
+            double maxOutput;
+            double minOutput;
+            double deltaTime;
+            double output;
+            double tbh;
+            double prevError;
+
+        public:
+            explicit TBHController(double _k);
+
+            void setSetpoint(double _setpoint);
+
+            void setOutputRange(double _minOutput, double _maxOutput);
+
+            void setDeltaTime(Units::Time _deltaTime);
+
+            double getOutput();
+
+            void update(double measurement);
+
+        };
+
+    } // LouLib
+} // Controllers
+
+#endif //LOULIB_TBHCONTROLLER_HPP
