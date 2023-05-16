@@ -22,10 +22,6 @@
 #include "Velocity.hpp"
 #include "Volume.hpp"
 
-#ifdef USE_LOULIB_NAMESPACES
-
-using namespace LouLib::Units;
-
-#endif
+using namespace LouLib::Units::literals;
 
 #endif //LOULIB_UNITS_HPP

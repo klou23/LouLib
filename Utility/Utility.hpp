@@ -3,10 +3,4 @@
 
 #include "Logger.hpp"
 
-#ifdef USE_LOULIB_NAMESPACES
-
-using namespace LouLib::Utility;
-
-#endif
-
 #endif //LOULIB_UTILITY_HPP

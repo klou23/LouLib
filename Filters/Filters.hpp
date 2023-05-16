@@ -5,10 +5,4 @@
 #include "SMMFilter.hpp"
 #include "EWMAFilter.hpp"
 
-#ifdef USE_LOULIB_NAMESPACES
-
-using namespace LouLib::Filters;
-
-#endif
-
 #endif //LOULIB_FILTERS_HPP

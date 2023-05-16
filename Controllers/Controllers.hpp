@@ -4,10 +4,4 @@
 #include "PIDController.hpp"
 #include "TBHController.hpp"
 
-#ifdef USE_LOULIB_NAMESPACES
-
-using namespace LouLib::Controllers;
-
-#endif
-
 #endif //LOULIB_CONTROLLERS_HPP
