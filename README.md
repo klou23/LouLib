@@ -1,2 +1,2 @@
 # LouLib
- A library for programming VEX robots
+[LouLib Documentation](https://klou23.github.io/LouLibDocs/)
