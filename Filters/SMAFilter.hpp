@@ -28,11 +28,12 @@
 #define LOULIB_SMAFILTER_HPP
 
 #include <queue>
+#include "AbstractFilter.hpp"
 
 namespace LouLib {
     namespace Filters {
 
-        class SMAFilter {
+        class SMAFilter : public AbstractFilter{
         private:
             int readingCount;
             std::queue<double> data;
