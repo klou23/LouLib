@@ -29,11 +29,12 @@
 
 #include <queue>
 #include <set>
+#include "AbstractFilter.hpp"
 
 namespace LouLib {
     namespace Filters {
 
-        class SMMFilter {
+        class SMMFilter : public AbstractFilter{
         private:
             int readingCount;
             std::queue<double> data;

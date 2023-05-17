@@ -27,10 +27,12 @@
 #ifndef LOULIB_EWMAFILTER_HPP
 #define LOULIB_EWMAFILTER_HPP
 
+#include "AbstractFilter.hpp"
+
 namespace LouLib {
     namespace Filters {
 
-        class EWMAFilter {
+        class EWMAFilter : public AbstractFilter{
         private:
             double k;
             double val;
@@ -39,9 +41,9 @@ namespace LouLib {
 
             explicit EWMAFilter(double k, double startVal = 0);
 
-            void addReading(double reading);
+            void addReading(double reading) override;
 
-            double getOutput();
+            double getOutput() override;
 
         };
 
