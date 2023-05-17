@@ -2,7 +2,7 @@
 #define LOULIB_LOULIB_HPP
 
 #include "Controllers/Controllers.hpp"
-#include "Filters/Filter.hpp"
+#include "Filters/Filters.hpp"
 #include "Math/Math.hpp"
 #include "Units/Units.hpp"
 #include "Utility/Utility.hpp"
@@ -11,6 +11,9 @@
 
 using namespace LouLib::Units;
 using namespace LouLib::Math;
+using namespace LouLib::Utility;
+using namespace LouLib::Controllers;
+using namespace LouLib::Filters;
 
 #endif
 
