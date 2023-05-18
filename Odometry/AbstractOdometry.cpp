@@ -3,12 +3,13 @@
 namespace LouLib{
     namespace Odometry{
 
-        void AbstractOdometry::setDeltaTime(Units::Time _deltaTime) {
-            deltaTimeMs = _deltaTime.to(Units::MILLISECOND);
-        }
-
         Math::Pose2D AbstractOdometry::getPose() {
             return robotPose;
         }
+
+        AbstractOdometry::AbstractOdometry() : robotPose(0_in, 0_in, 0_deg){
+
+        }
+
     }
 }

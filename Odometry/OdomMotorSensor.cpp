@@ -9,14 +9,14 @@ namespace LouLib {
             gearRatio = 1;
         }
 
-        void OdomMotorSensor::setGearRatio(int driven, int driving) {
-            gearRatio = (double)driven/(double)driving;
+        void OdomMotorSensor::setGearRatio(int wheelSide, int sensorSide) {
+            gearRatio = (double)wheelSide/(double)sensorSide;
         }
 
         Units::Length OdomMotorSensor::getPosition() {
             Units::Angle drivingRotation = motor.get_position() * Units::DEGREE;
             Units::Angle drivenRotation = drivingRotation / gearRatio;
-            return drivenRotation.to(Units::RADIAN) * wheelDiam;
+            return drivenRotation.to(Units::RADIAN) * (wheelDiam/2.0);
         }
     } // LouLib
 } // Odometry

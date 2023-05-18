@@ -3,11 +3,12 @@
 
 #include "../../../include/api.h"
 #include "../Units/Units.hpp"
+#include "AbstractOdomSensor.hpp"
 
 namespace LouLib {
     namespace Odometry {
 
-        class OdomMotorSensor {
+        class OdomMotorSensor : public AbstractOdomSensor{
         private:
             pros::Motor motor;
             Units::Length wheelDiam;
@@ -17,9 +18,9 @@ namespace LouLib {
             OdomMotorSensor(int motorPort, pros::motor_gearset_e_t gearset, bool motorReversed,
                             const Units::Length &wheelDiam);
 
-            void setGearRatio(int driven, int driving);
+            void setGearRatio(int wheelSide, int sensorSide) override;
 
-            Units::Length getPosition();
+            Units::Length getPosition() override;
         };
 
     } // LouLib

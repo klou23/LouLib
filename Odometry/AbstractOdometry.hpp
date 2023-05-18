@@ -9,21 +9,17 @@ namespace LouLib {
     namespace Odometry {
 
         class AbstractOdometry {
-        private:
+        protected:
 
-            double deltaTimeMs;
-            pros::Task odomTask;
             Math::Pose2D robotPose;
 
         public:
 
-            void setDeltaTime(Units::Time _deltaTime);
+            AbstractOdometry();
 
-            virtual void setPose(Math::Pose2D) = 0;
+            virtual void setPose(Math::Pose2D newPose) = 0;
 
-            virtual void start() = 0;
-
-            virtual void stop() = 0;
+            virtual void update() = 0;
 
             Math::Pose2D getPose();
         };
