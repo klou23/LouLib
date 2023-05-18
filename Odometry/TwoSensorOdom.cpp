@@ -53,6 +53,7 @@ namespace LouLib {
             robotPose.setX(robotPose.getX() + realPoseChange[0] * Units::INCH);
             robotPose.setY(robotPose.getY() + realPoseChange[1] * Units::INCH);
             robotPose.setTheta(robotPose.getTheta() + realPoseChange[2] * Units::RADIAN);
+            robotPose.setTheta(Math::constrainAngle(robotPose.getTheta().to(Units::DEGREE)) * Units::DEGREE);
         }
 
     } // LouLib
