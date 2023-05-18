@@ -1,24 +1,27 @@
 #ifndef LOULIB_POINT2D_HPP
 #define LOULIB_POINT2D_HPP
 
+#include "../Units/Units.hpp"
+
 namespace LouLib {
     namespace Math {
 
         class Point2D {
         private:
-            double x;
-            double y;
+            Units::Length x;
+            Units::Length y;
 
         public:
-            Point2D(double x, double y);
 
-            double getX() const;
+            Point2D(const Units::Length &x, const Units::Length &y);
 
-            void setX(double x);
+            const Units::Length &getX() const;
 
-            double getY() const;
+            void setX(const Units::Length &x);
 
-            void setY(double y);
+            const Units::Length &getY() const;
+
+            void setY(const Units::Length &y);
 
         };
 

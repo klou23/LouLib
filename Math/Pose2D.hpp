@@ -1,30 +1,32 @@
 #ifndef LOULIB_POSE2D_HPP
 #define LOULIB_POSE2D_HPP
 
+#include "../Units/Units.hpp"
+
 namespace LouLib {
     namespace Math {
 
         class Pose2D {
         private:
-            double x;
-            double y;
-            double theta;
+            Units::Length x;
+            Units::Length y;
+            Units::Angle theta;
 
         public:
 
-            Pose2D(double x, double y, double theta);
+            Pose2D(const Units::Length &x, const Units::Length &y, const Units::Angle &theta);
 
-            double getX() const;
+            const Units::Length &getX() const;
 
-            void setX(double x);
+            void setX(const Units::Length &x);
 
-            double getY() const;
+            const Units::Length &getY() const;
 
-            void setY(double y);
+            void setY(const Units::Length &y);
 
-            double getTheta() const;
+            const Units::Angle &getTheta() const;
 
-            void setTheta(double theta);
+            void setTheta(const Units::Angle &theta);
 
         };
 
