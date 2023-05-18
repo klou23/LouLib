@@ -26,6 +26,8 @@
 
 #include "MathFunctions.hpp"
 
+#include <cmath>
+
 namespace LouLib{
     namespace Math{
 
@@ -38,6 +40,17 @@ namespace LouLib{
             if(val < min) return min;
             else if(val > max) return max;
             return val;
+        }
+
+        double constrainAngle(double x) {
+            double sol = std::fmod(x + 180.0, 360.0);
+            if(sol < 0) sol += 360;
+            return sol - 180;
+        }
+
+        double angleDifference(double final, double initial) {
+            double diff = final - initial;
+            return constrainAngle(diff);
         }
 
     }

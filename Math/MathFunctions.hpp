@@ -38,6 +38,19 @@ namespace LouLib{
           * Returns the value clamped between the max and min
           */
           double clamp(double val, double min, double max);
+
+          /**
+           * Ensures angle is in the range of [-180, 180)
+           * @param x
+           * @return
+           */
+          double constrainAngle(double x);
+
+          /**
+           * Returns the difference of the final and initial angles
+           * Must be in degrees
+           */
+           double angleDifference(double final, double initial);
     }
 }
 
