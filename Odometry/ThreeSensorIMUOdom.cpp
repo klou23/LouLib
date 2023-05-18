@@ -1,35 +1,41 @@
-#include "TwoSensorIMUOdom.hpp"
+#include "ThreeSensorIMUOdom.hpp"
 
 namespace LouLib {
     namespace Odometry {
-
-        TwoSensorIMUOdom::TwoSensorIMUOdom(AbstractOdomSensor &leftSensor, AbstractOdomSensor &rightSensor,
-                                           Units::Length trackWidth, OdomIMUSensor &imuSensor) :
-                   leftSensor(leftSensor), rightSensor(rightSensor), trackWidth(trackWidth), imuSensor(imuSensor){
+        ThreeSensorIMUOdom::ThreeSensorIMUOdom(AbstractOdomSensor &leftSensor, AbstractOdomSensor &rightSensor,
+                                               const Units::Length &trackWidth, AbstractOdomSensor &backSensor,
+                                               const Units::Length &backDist, OdomIMUSensor &imuSensor) : leftSensor(
+                leftSensor), rightSensor(rightSensor), trackWidth(trackWidth), backSensor(backSensor), backDist(
+                backDist), imuSensor(imuSensor) {
             lastLeft = leftSensor.getPosition();
             lastRight = rightSensor.getPosition();
+            lastBack = backSensor.getPosition();
             lastTheta = imuSensor.getHeading();
         }
 
-        void TwoSensorIMUOdom::setPose(Math::Pose2D newPose) {
+        void ThreeSensorIMUOdom::setPose(Math::Pose2D newPose) {
             robotPose = newPose;
             lastLeft = leftSensor.getPosition();
             lastRight = rightSensor.getPosition();
+            lastBack = backSensor.getPosition();
             lastTheta = imuSensor.getHeading();
         }
 
-        void TwoSensorIMUOdom::update() {
+        void ThreeSensorIMUOdom::update() {
             Units::Length deltaLeft = leftSensor.getPosition() - lastLeft;
             Units::Length deltaRight = rightSensor.getPosition() - lastRight;
+            Units::Length deltaBack = backSensor.getPosition() - lastBack;
 
             lastLeft = leftSensor.getPosition();
             lastRight = rightSensor.getPosition();
+            lastBack = backSensor.getPosition();
 
             double deltaX = ((deltaLeft+deltaRight)/2.0).to(Units::INCH);
-            double deltaY = 0;
             double deltaTheta = (imuSensor.getHeading() - lastTheta).to(Units::RADIAN);
 
             lastTheta = imuSensor.getHeading();
+
+            double deltaY = (deltaBack - (deltaTheta * backDist)).to(Units::INCH);
 
             Math::Vector deltaPoseVector({deltaX, deltaY, deltaTheta});
 
@@ -57,6 +63,7 @@ namespace LouLib {
             robotPose.setTheta(robotPose.getTheta() + realPoseChange[2] * Units::RADIAN);
             robotPose.setTheta(Math::constrainAngle(robotPose.getTheta().to(Units::DEGREE)) * Units::DEGREE);
         }
+
 
     } // LouLib
 } // Odometry
