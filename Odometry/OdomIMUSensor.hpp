@@ -1,7 +1,7 @@
 /**
- * Filters.hpp
+ * OdomIMUSensor.hpp
  *
- * Include file for the Filters namespace
+ * Header file for the OdomIMUSensor class
  *
  * Copyright (c) 2023 Kevin Lou
  *
@@ -24,12 +24,26 @@
  * SOFTWARE.
  */
 
-#ifndef LOULIB_FILTERS_HPP
-#define LOULIB_FILTERS_HPP
+#ifndef LOULIB_ODOMIMUSENSOR_HPP
+#define LOULIB_ODOMIMUSENSOR_HPP
 
-#include "SMAFilter.hpp"
-#include "SMMFilter.hpp"
-#include "EWMAFilter.hpp"
-#include "AbstractFilter.hpp"
+#include "../../../include/api.h"
+#include "../Units/Units.hpp"
 
-#endif //LOULIB_FILTERS_HPP
+namespace LouLib {
+    namespace Odometry {
+
+        class OdomIMUSensor {
+        private:
+            pros::IMU imuSensor;
+
+        public:
+            explicit OdomIMUSensor(int port);
+
+            Units::Angle getHeading();
+        };
+
+    } // LouLib
+} // Odometry
+
+#endif //LOULIB_ODOMIMUSENSOR_HPP

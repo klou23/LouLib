@@ -1,7 +1,7 @@
 /**
- * Filters.hpp
+ * OdomRotationSensor.cpp
  *
- * Include file for the Filters namespace
+ * Implementation file for the OdomRotationSensor class
  *
  * Copyright (c) 2023 Kevin Lou
  *
@@ -24,12 +24,21 @@
  * SOFTWARE.
  */
 
-#ifndef LOULIB_FILTERS_HPP
-#define LOULIB_FILTERS_HPP
+#include "OdomRotationSensor.hpp"
 
-#include "SMAFilter.hpp"
-#include "SMMFilter.hpp"
-#include "EWMAFilter.hpp"
-#include "AbstractFilter.hpp"
 
-#endif //LOULIB_FILTERS_HPP
+LouLib::Odometry::OdomRotationSensor::OdomRotationSensor(int port, bool reversed,
+        const LouLib::Units::Length &wheelDiam) : rotationSensor(port, reversed), wheelDiam(wheelDiam){
+    gearRatio = 1;
+    rotationSensor.reset_position();
+}
+
+void LouLib::Odometry::OdomRotationSensor::setGearRatio(int wheelSide, int sensorSide) {
+    gearRatio = (double)wheelSide/(double)sensorSide;
+}
+
+LouLib::Units::Length LouLib::Odometry::OdomRotationSensor::getPosition() {
+    Units::Angle drivingRotation = rotationSensor.get_position() * Units::CENTIDEGREE;
+    Units::Angle drivenRotation = drivingRotation / gearRatio;
+    return drivenRotation.to(Units::RADIAN) * (wheelDiam/2.0);
+}

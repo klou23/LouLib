@@ -1,7 +1,7 @@
 /**
- * Filters.hpp
+ * AbstractOdometry.hpp
  *
- * Include file for the Filters namespace
+ * Header file for the AbstractOdometry class
  *
  * Copyright (c) 2023 Kevin Lou
  *
@@ -24,12 +24,33 @@
  * SOFTWARE.
  */
 
-#ifndef LOULIB_FILTERS_HPP
-#define LOULIB_FILTERS_HPP
+#ifndef LOULIB_ABSTRACTODOMETRY_HPP
+#define LOULIB_ABSTRACTODOMETRY_HPP
 
-#include "SMAFilter.hpp"
-#include "SMMFilter.hpp"
-#include "EWMAFilter.hpp"
-#include "AbstractFilter.hpp"
+#include "../Units/Units.hpp"
+#include "../../../include/api.h"
+#include "../Math/Math.hpp"
 
-#endif //LOULIB_FILTERS_HPP
+namespace LouLib {
+    namespace Odometry {
+
+        class AbstractOdometry {
+        protected:
+
+            Math::Pose2D robotPose;
+
+        public:
+
+            AbstractOdometry();
+
+            virtual void setPose(Math::Pose2D newPose) = 0;
+
+            virtual void update() = 0;
+
+            Math::Pose2D getPose();
+        };
+
+    } // LouLib
+} // Odometry
+
+#endif //LOULIB_ABSTRACTODOMETRY_HPP

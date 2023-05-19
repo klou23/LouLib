@@ -1,7 +1,7 @@
 /**
- * MathFunctions.cpp
+ * ThreeSensorOdom.hpp
  *
- * Contains implementations of commonly used math functions
+ * Header file for the ThreeSensorOdom class
  *
  * Copyright (c) 2023 Kevin Lou
  *
@@ -24,34 +24,44 @@
  * SOFTWARE.
  */
 
-#include "MathFunctions.hpp"
+#ifndef LOULIB_THREESENSORODOM_HPP
+#define LOULIB_THREESENSORODOM_HPP
 
-#include <cmath>
+#include "AbstractOdometry.hpp"
+#include "OdomMotorSensor.hpp"
+#include "OdomRotationSensor.hpp"
 
-namespace LouLib{
-    namespace Math{
+namespace LouLib {
+    namespace Odometry {
 
-        int signum(double a){
-            if(a == 0) return 0;
-            return a > 0 ? 1 : -1;
-        }
+        class ThreeSensorOdom : public AbstractOdometry{
+        private:
 
-        double clamp(double val, double min, double max) {
-            if(val < min) return min;
-            else if(val > max) return max;
-            return val;
-        }
+            AbstractOdomSensor &leftSensor;
+            AbstractOdomSensor &rightSensor;
 
-        double constrainAngle(double x) {
-            double sol = std::fmod(x + 180.0, 360.0);
-            if(sol < 0) sol += 360;
-            return sol - 180;
-        }
+            Units::Length trackWidth;
 
-        double angleDifference(double final, double initial) {
-            double diff = final - initial;
-            return constrainAngle(diff);
-        }
+            AbstractOdomSensor &backSensor;
 
-    }
-}
+            Units::Length backDist;
+
+            Units::Length lastLeft = 0_in;
+            Units::Length lastRight = 0_in;
+            Units::Length lastBack = 0_in;
+
+        public:
+            ThreeSensorOdom(AbstractOdomSensor &leftSensor, AbstractOdomSensor &rightSensor,
+                            const Units::Length &trackWidth, AbstractOdomSensor &backSensor,
+                            const Units::Length &backDist);
+
+            void setPose(Math::Pose2D newPose) override;
+
+            void update() override;
+
+        };
+
+    } // LouLib
+} // Odometry
+
+#endif //LOULIB_THREESENSORODOM_HPP

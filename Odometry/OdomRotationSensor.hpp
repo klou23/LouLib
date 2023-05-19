@@ -1,7 +1,7 @@
 /**
- * Filters.hpp
+ * OdomRotationSensor.hpp
  *
- * Include file for the Filters namespace
+ * Header file for the OdomRotationSensor class
  *
  * Copyright (c) 2023 Kevin Lou
  *
@@ -24,12 +24,32 @@
  * SOFTWARE.
  */
 
-#ifndef LOULIB_FILTERS_HPP
-#define LOULIB_FILTERS_HPP
+#ifndef LOULIB_ODOMROTATIONSENSOR_HPP
+#define LOULIB_ODOMROTATIONSENSOR_HPP
 
-#include "SMAFilter.hpp"
-#include "SMMFilter.hpp"
-#include "EWMAFilter.hpp"
-#include "AbstractFilter.hpp"
+#include "../../../include/api.h"
+#include "../Units/Units.hpp"
+#include "AbstractOdomSensor.hpp"
 
-#endif //LOULIB_FILTERS_HPP
+namespace LouLib {
+    namespace Odometry{
+
+        class OdomRotationSensor : public AbstractOdomSensor{
+        private:
+            pros::Rotation rotationSensor;
+            Units::Length wheelDiam;
+            double gearRatio;
+
+        public:
+            OdomRotationSensor(int port, bool reversed, const Units::Length &wheelDiam);
+
+            void setGearRatio(int wheelSide, int sensorSide) override;
+
+            Units::Length getPosition() override;
+        };
+
+    }
+}
+
+
+#endif //LOULIB_ODOMROTATIONSENSOR_HPP

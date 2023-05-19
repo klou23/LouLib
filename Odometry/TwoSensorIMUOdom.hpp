@@ -1,7 +1,7 @@
 /**
- * Filters.hpp
+ * TwoSensorIMUOdom.hpp
  *
- * Include file for the Filters namespace
+ * Header file for the TwoSensorIMUOdom class
  *
  * Copyright (c) 2023 Kevin Lou
  *
@@ -24,12 +24,42 @@
  * SOFTWARE.
  */
 
-#ifndef LOULIB_FILTERS_HPP
-#define LOULIB_FILTERS_HPP
+#ifndef LOULIB_TWOSENSORIMUODOM_HPP
+#define LOULIB_TWOSENSORIMUODOM_HPP
 
-#include "SMAFilter.hpp"
-#include "SMMFilter.hpp"
-#include "EWMAFilter.hpp"
-#include "AbstractFilter.hpp"
+#include "AbstractOdometry.hpp"
+#include "OdomMotorSensor.hpp"
+#include "OdomRotationSensor.hpp"
+#include "OdomIMUSensor.hpp"
 
-#endif //LOULIB_FILTERS_HPP
+namespace LouLib {
+    namespace Odometry {
+
+        class TwoSensorIMUOdom : public AbstractOdometry{
+        private:
+
+            AbstractOdomSensor &leftSensor;
+            AbstractOdomSensor &rightSensor;
+            OdomIMUSensor &imuSensor;
+
+            Units::Length trackWidth;
+
+            Units::Length lastLeft = 0_in;
+            Units::Length lastRight = 0_in;
+            Units::Angle lastTheta = 0_deg;
+
+        public:
+
+            TwoSensorIMUOdom(AbstractOdomSensor &leftSensor, AbstractOdomSensor &rightSensor,
+                             Units::Length trackWidth, OdomIMUSensor &imuSensor);
+
+            void setPose(Math::Pose2D newPose) override;
+
+            void update() override;
+
+        };
+
+    } // LouLib
+} // Odometry
+
+#endif //LOULIB_TWOSENSORIMUODOM_HPP

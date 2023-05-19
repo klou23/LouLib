@@ -1,7 +1,7 @@
 /**
- * Filters.hpp
+ * Point2D.hpp
  *
- * Include file for the Filters namespace
+ * Header file for the Point2D class
  *
  * Copyright (c) 2023 Kevin Lou
  *
@@ -24,12 +24,34 @@
  * SOFTWARE.
  */
 
-#ifndef LOULIB_FILTERS_HPP
-#define LOULIB_FILTERS_HPP
+#ifndef LOULIB_POINT2D_HPP
+#define LOULIB_POINT2D_HPP
 
-#include "SMAFilter.hpp"
-#include "SMMFilter.hpp"
-#include "EWMAFilter.hpp"
-#include "AbstractFilter.hpp"
+#include "../Units/Units.hpp"
 
-#endif //LOULIB_FILTERS_HPP
+namespace LouLib {
+    namespace Math {
+
+        class Point2D {
+        private:
+            Units::Length x;
+            Units::Length y;
+
+        public:
+
+            Point2D(const Units::Length &x, const Units::Length &y);
+
+            const Units::Length &getX() const;
+
+            void setX(const Units::Length &x);
+
+            const Units::Length &getY() const;
+
+            void setY(const Units::Length &y);
+
+        };
+
+    } // LouLib
+} // Math
+
+#endif //LOULIB_POINT2D_HPP

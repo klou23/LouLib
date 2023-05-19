@@ -1,7 +1,7 @@
 /**
- * Filters.hpp
+ * AbstractOdomSensor.hpp
  *
- * Include file for the Filters namespace
+ * Header file for the AbstractOdomSensor class
  *
  * Copyright (c) 2023 Kevin Lou
  *
@@ -24,12 +24,21 @@
  * SOFTWARE.
  */
 
-#ifndef LOULIB_FILTERS_HPP
-#define LOULIB_FILTERS_HPP
+#ifndef LOULIB_ABSTRACTODOMSENSOR_HPP
+#define LOULIB_ABSTRACTODOMSENSOR_HPP
 
-#include "SMAFilter.hpp"
-#include "SMMFilter.hpp"
-#include "EWMAFilter.hpp"
-#include "AbstractFilter.hpp"
+#include "../Units/Units.hpp"
 
-#endif //LOULIB_FILTERS_HPP
+namespace LouLib{
+    namespace Odometry{
+        class AbstractOdomSensor {
+        public:
+            virtual void setGearRatio(int wheelSide, int sensorSide) = 0;
+
+            virtual Units::Length getPosition() = 0;
+        };
+    }
+}
+
+
+#endif //LOULIB_ABSTRACTODOMSENSOR_HPP
