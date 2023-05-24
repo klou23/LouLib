@@ -36,9 +36,10 @@ namespace LouLib {
         class OdomIMUSensor {
         private:
             pros::IMU imuSensor;
+            double scale;
 
         public:
-            explicit OdomIMUSensor(int port);
+            explicit OdomIMUSensor(int port, double scale = 1);
 
             Units::Angle getHeading();
         };

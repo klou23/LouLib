@@ -31,12 +31,12 @@
 namespace LouLib {
     namespace Odometry {
 
-        OdomIMUSensor::OdomIMUSensor(int port) : imuSensor(port){
+        OdomIMUSensor::OdomIMUSensor(int port, double scale) : imuSensor(port), scale(scale){
             imuSensor.reset();
         }
 
         Units::Angle OdomIMUSensor::getHeading() {
-            double raw = imuSensor.get_heading();
+            double raw = imuSensor.get_heading()*scale;
             double bounded = Math::constrainAngle(raw);
             return bounded * Units::DEGREE;
         }
