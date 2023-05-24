@@ -1,2 +1,2 @@
 # LouLib
-[LouLib Documentation](https://klou23.github.io/LouLibDocs/)
+[LouLib Documentation](https://loulibdocs.github.io)
