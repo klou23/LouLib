@@ -1,7 +1,7 @@
 /**
- * Point2D.hpp
+ * BezierCurve.hpp
  *
- * Header file for the Point2D class
+ * Header file for the BezierCurve class
  *
  * Copyright (c) 2023 Kevin Lou
  *
@@ -24,38 +24,35 @@
  * SOFTWARE.
  */
 
-#ifndef LOULIB_POINT2D_HPP
-#define LOULIB_POINT2D_HPP
+#ifndef LOULIB_BEZIERCURVE_HPP
+#define LOULIB_BEZIERCURVE_HPP
 
-#include "../Units/Units.hpp"
+#include "../Math/Math.hpp"
 
 namespace LouLib {
-    namespace Math {
+    namespace Paths {
 
-        class Point2D {
+        class BezierCurve {
         private:
-            Units::Length x;
-            Units::Length y;
+            Math::Point2D P0;
+            Math::Point2D P1;
+            Math::Point2D P2;
+            Math::Point2D P3;
 
         public:
+            BezierCurve(const Math::Point2D &p0, const Math::Point2D &p1, const Math::Point2D &p2,
+                        const Math::Point2D &p3);
 
-            Point2D(const Units::Length &x, const Units::Length &y);
+            Math::Point2D evaluate(double t);
 
-            const Units::Length &getX() const;
-
-            void setX(const Units::Length &x);
-
-            const Units::Length &getY() const;
-
-            void setY(const Units::Length &y);
-
-            double findCurvature(Point2D a, Point2D b);
-
-            Units::Length distTo(Point2D a);
+            /**
+             * Decomposes the bezier curve into n points
+             */
+            std::vector<Math::Point2D> decompose(int n);
 
         };
 
     } // LouLib
-} // Math
+} // Paths
 
-#endif //LOULIB_POINT2D_HPP
+#endif //LOULIB_BEZIERCURVE_HPP

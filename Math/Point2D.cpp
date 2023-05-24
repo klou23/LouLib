@@ -47,6 +47,33 @@ namespace LouLib {
             Point2D::y = y;
         }
 
+        double Point2D::findCurvature(Point2D a, Point2D b) {
+            double x1 = a.getX().to(Units::METER);
+            double y1 = a.getY().to(Units::METER);
+            double x2 = getX().to(Units::METER);
+            double y2 = getY().to(Units::METER);
+            double x3 = b.getX().to(Units::METER);
+            double y3 = b.getY().to(Units::METER);
+
+            double A = x1*(y2-y3)-y1*(x2-x3)+x2*y3-x3*y2;
+            double B = (x1*x1+y1*y1)*(y3-y2)+(x2*x2+y2*y2)*(y1-y3)+
+                       (x3*x3+y3*y3)*(y2-y1);
+            double C = (x1*x1+y1*y1)*(x2-x3)+(x2*x2+y2*y2)*(x3-x1)+
+                       (x3*x3+y3*y3)*(x1-x2);
+            double D = (x1*x1+y1*y1)*(x3*y2-x2*y3)+(x2*x2+y2*y2)*(x1*y3-x3*y1)+
+                       (x3*x3+y3*y3)*(x2*y1-x1*y2);
+
+            if(A < 0.0001) return 0;
+            double r = std::sqrt((B*B+C*C-4*A*D)/(4*A*A));
+            return 1.0/r;
+        }
+
+        Units::Length Point2D::distTo(Point2D a) {
+            double dx = (getX() - a.getX()).to(Units::METER);
+            double dy = (getY() - a.getY()).to(Units::METER);
+            return sqrt(dx*dx + dy*dy) * Units::METER;
+        }
+
 
     } // LouLib
 } // Math
