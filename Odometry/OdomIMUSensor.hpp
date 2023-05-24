@@ -39,7 +39,7 @@ namespace LouLib {
             double scale;
 
         public:
-            explicit OdomIMUSensor(int port, double scale);
+            explicit OdomIMUSensor(int port, double scale = 1);
 
             Units::Angle getHeading();
         };
