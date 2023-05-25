@@ -1,7 +1,7 @@
 /**
- * AbstractFilter.hpp
+ * Odometry.hpp
  *
- * Header file for the AbstractFilter class
+ * Include file for the Odometry namespace
  *
  * Copyright (c) 2023 Kevin Lou
  *
@@ -24,20 +24,17 @@
  * SOFTWARE.
  */
 
-#ifndef LOULIB_ABSTRACTFILTER_HPP
-#define LOULIB_ABSTRACTFILTER_HPP
+#ifndef LOULIB_ODOMETRY_HPP
+#define LOULIB_ODOMETRY_HPP
 
-namespace LouLib {
-    namespace Filters {
+#include "AbstractOdometry.hpp"
+#include "AbstractOdomSensor.hpp"
+#include "OdomIMUSensor.hpp"
+#include "OdomMotorSensor.hpp"
+#include "OdomRotationSensor.hpp"
+#include "ThreeSensorIMUOdom.hpp"
+#include "ThreeSensorOdom.hpp"
+#include "TwoSensorIMUOdom.hpp"
+#include "TwoSensorOdom.hpp"
 
-        class AbstractFilter {
-        public:
-            virtual void addReading(double reading) = 0;
-
-            virtual double getOutput() = 0;
-        };
-
-    } // LouLib
-} // Filters
-
-#endif //LOULIB_ABSTRACTFILTER_HPP
+#endif //LOULIB_ODOMETRY_HPP

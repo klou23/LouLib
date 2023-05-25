@@ -1,7 +1,7 @@
 /**
- * AbstractFilter.hpp
+ * Paths.hpp
  *
- * Header file for the AbstractFilter class
+ * Include file for the Paths namespace
  *
  * Copyright (c) 2023 Kevin Lou
  *
@@ -24,20 +24,10 @@
  * SOFTWARE.
  */
 
-#ifndef LOULIB_ABSTRACTFILTER_HPP
-#define LOULIB_ABSTRACTFILTER_HPP
+#ifndef LOULIB_PATHS_HPP
+#define LOULIB_PATHS_HPP
 
-namespace LouLib {
-    namespace Filters {
+#include "BezierCurve.hpp"
+#include "Trajectory.hpp"
 
-        class AbstractFilter {
-        public:
-            virtual void addReading(double reading) = 0;
-
-            virtual double getOutput() = 0;
-        };
-
-    } // LouLib
-} // Filters
-
-#endif //LOULIB_ABSTRACTFILTER_HPP
+#endif //LOULIB_PATHS_HPP
