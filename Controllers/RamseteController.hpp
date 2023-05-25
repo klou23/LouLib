@@ -1,7 +1,7 @@
 /**
- * AbstractFilter.hpp
+ * RamseteController.hpp
  *
- * Header file for the AbstractFilter class
+ * Header file for the RamseteController class
  *
  * Copyright (c) 2023 Kevin Lou
  *
@@ -24,20 +24,34 @@
  * SOFTWARE.
  */
 
-#ifndef LOULIB_ABSTRACTFILTER_HPP
-#define LOULIB_ABSTRACTFILTER_HPP
+#ifndef LOULIB_RAMSETECONTROLLER_HPP
+#define LOULIB_RAMSETECONTROLLER_HPP
+
+#include "../Paths/Trajectory.hpp"
 
 namespace LouLib {
-    namespace Filters {
+    namespace Controllers {
 
-        class AbstractFilter {
+        class RamseteController {
+        private:
+            double b;
+            double zeta;
+
+            Units::Velocity v = 0_mps;
+            Units::AngularVelocity omega = 0_radps;
+
         public:
-            virtual void addReading(double reading) = 0;
+            RamseteController(double b, double zeta);
 
-            virtual double getOutput() = 0;
+            void computeControl(Paths::Trajectory& t, int idx, Math::Pose2D robotPose);
+
+            const Units::Velocity &getV() const;
+
+            const Units::AngularVelocity &getOmega() const;
+
         };
 
     } // LouLib
-} // Filters
+} // Controllers
 
-#endif //LOULIB_ABSTRACTFILTER_HPP
+#endif //LOULIB_RAMSETECONTROLLER_HPP

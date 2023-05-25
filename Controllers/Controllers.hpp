@@ -29,5 +29,7 @@
 
 #include "PIDController.hpp"
 #include "TBHController.hpp"
+#include "LQRController.hpp"
+#include "RamseteController.hpp"
 
 #endif //LOULIB_CONTROLLERS_HPP
