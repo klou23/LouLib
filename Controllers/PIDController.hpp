@@ -32,6 +32,10 @@
 namespace LouLib {
     namespace Controllers {
 
+        /**
+         * @class PIDController
+         * Class used as a Proportional-Integral-Derivative controller
+         */
         class PIDController {
         private:
             double kp;
@@ -52,22 +56,60 @@ namespace LouLib {
 
         public:
 
+            /**
+             * Creates a new PID controller with the given gains
+             * @param _kp proportional gain
+             * @param _ki integral gain
+             * @param _kd derivative gain
+             */
             PIDController(double _kp, double _ki, double _kd);
 
+            /**
+             * Sets the maximum tolerance of the controller
+             * @param _errorTolerance maximum error tolerance
+             * @param _derivativeTolerance maximum derivative tolerance. Defaults
+             * to infinity
+             */
             void setTolerance(double _errorTolerance, double _derivativeTolerance = (1<<30));
 
+            /**
+             * Sets the error range in which the integral will accumulate
+             * @param _integratorRangeMin lower bound of the range
+             * @param _integratorRangeMax upper bound of the range
+             */
             void setIntegratorRange(double _integratorRangeMin, double _integratorRangeMax);
 
+            /**
+             * Sets the range of possible output values
+             * @param _minOutput lower bound for output values
+             * @param _maxOutput upper bound for output values
+             */
             void setOutputRange(double _minOutput, double _maxOutput);
 
+            /**
+             * Sets the amount of time between each controller loop
+             */
             void setDeltaTime(Units::Time _deltaTime);
 
+            /**
+             * Sets the target value of the controller
+             */
             void setSetpoint(double _setpoint);
 
+            /**
+             * Returns whether or not the controller has reached the setpoint
+             * based on the controller's tolerance
+             */
             bool atSetpoint();
 
+            /**
+             * Returns the computed control input
+             */
             double getOutput();
 
+            /**
+             * Update the PID controller with the new measured value
+             */
             void update(double measurement);
 
         };

@@ -32,6 +32,10 @@
 namespace LouLib {
     namespace Controllers {
 
+        /**
+         * @class RamseteController
+         * Class used as a RAMSETE non-linear, time-varying uncycle controller
+         */
         class RamseteController {
         private:
             double b;
@@ -41,12 +45,27 @@ namespace LouLib {
             Units::AngularVelocity omega = 0_radps;
 
         public:
+            /**
+             * Creates a new RAMSETE controller with the given gains
+             */
             RamseteController(double b, double zeta);
 
+            /**
+             * Computes the optimal trajectory following control
+             * @param t The trajectory the robot is following
+             * @param idx The current index along the trajectory
+             * @param robotPose The current pose of the robot
+             */
             void computeControl(Paths::Trajectory& t, int idx, Math::Pose2D robotPose);
 
+            /**
+             * Returns the computed velocity value
+             */
             const Units::Velocity &getV() const;
 
+            /**
+             * Returns the computed angular velocity value
+             */
             const Units::AngularVelocity &getOmega() const;
 
         };

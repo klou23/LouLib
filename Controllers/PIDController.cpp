@@ -79,7 +79,7 @@ namespace LouLib {
         }
 
         bool PIDController::atSetpoint() {
-            return (error < errorTolerance && derivative < derivativeTolerance);
+            return (std::abs(error) < errorTolerance && std::abs(derivative) < derivativeTolerance);
         }
 
         double PIDController::getOutput() {
