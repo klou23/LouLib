@@ -91,6 +91,9 @@ namespace LouLib {
              */
             Vector normalize();
 
+            /**
+             * Returns a string representation of the vector
+             */
             std::string toString();
         };
 

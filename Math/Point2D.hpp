@@ -39,18 +39,42 @@ namespace LouLib {
 
         public:
 
+            /**
+             * Constructor
+             */
             Point2D(const Units::Length &x, const Units::Length &y);
 
+            /**
+             * Getter for x
+             */
             const Units::Length &getX() const;
 
+            /**
+             * Setter for x
+             */
             void setX(const Units::Length &x);
 
+            /**
+             * Getter for y
+             */
             const Units::Length &getY() const;
 
+            /**
+             * Setter for y
+             */
             void setY(const Units::Length &y);
 
+            /**
+             * Calculates the curvature at this point given two other points
+             * @param a point before
+             * @param b point after
+             * @return curvature at this point
+             */
             double findCurvature(Point2D a, Point2D b);
 
+            /**
+             * Returns the distance to another point
+             */
             Units::Length distTo(Point2D a);
 
         };
