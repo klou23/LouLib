@@ -41,11 +41,21 @@ namespace LouLib {
 
         public:
 
+            /**
+             * Constructor
+             * @param readingCount number of readings to overage
+             */
             explicit SMAFilter(int readingCount);
 
-            void addReading(double reading);
+            /**
+             * Adds a new reading into the filter's data set
+             */
+            void addReading(double reading) override;
 
-            double getOutput();
+            /**
+             * Returns the output value of the filter
+             */
+            double getOutput() override;
 
         };
 

@@ -42,10 +42,20 @@ namespace LouLib {
 
         public:
 
+            /**
+             * Constructor
+             * @param readingCount number of readings to find the median of
+             */
             explicit SMMFilter(int readingCount);
 
-            void addReading(double reading);
+            /**
+             * Adds a new reading into the filter's data set
+             */
+            void addReading(double reading) override;
 
+            /**
+             * Returns the output value of the filter
+             */
             double getOutput();
 
         };

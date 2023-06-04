@@ -32,8 +32,15 @@ namespace LouLib {
 
         class AbstractFilter {
         public:
+
+            /**
+             * Adds a new reading into the filter's data set
+             */
             virtual void addReading(double reading) = 0;
 
+            /**
+             * Returns the output value of the filter
+             */
             virtual double getOutput() = 0;
         };
 
