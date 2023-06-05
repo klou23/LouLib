@@ -34,7 +34,7 @@ namespace LouLib {
 
         /**
          * @class LQRController
-         * Class used as a Linear Quadratic Regulator controller
+         * @brief Class used as a Linear Quadratic Regulator controller
          */
         class LQRController {
         private:

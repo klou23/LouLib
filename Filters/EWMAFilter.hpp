@@ -32,6 +32,10 @@
 namespace LouLib {
     namespace Filters {
 
+        /**
+         * @class EWMAFilter
+         * @brief Class used as an exponentially weighted moving average filter
+         */
         class EWMAFilter : public AbstractFilter{
         private:
             double k;

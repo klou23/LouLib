@@ -6,6 +6,10 @@
 namespace LouLib {
     namespace Paths {
 
+        /**
+         * @class Trajectory
+         * @brief Class used to compute differential drive trajectories
+         */
         class Trajectory {
         private:
             std::vector<Units::Length> _x;

@@ -32,6 +32,10 @@
 namespace LouLib {
     namespace Math {
 
+        /**
+         * @class Pose2D
+         * @brief Class representing a pose in 2D space
+         */
         class Pose2D {
         private:
             Units::Length x;

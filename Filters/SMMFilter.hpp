@@ -34,6 +34,10 @@
 namespace LouLib {
     namespace Filters {
 
+        /**
+         * @class SMMFilter
+         * @brief Class used as a simple moving median filter
+         */
         class SMMFilter : public AbstractFilter{
         private:
             int readingCount;

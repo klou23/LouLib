@@ -36,7 +36,7 @@ namespace LouLib {
 
         /**
          * @class Vector
-         * @brief A class representing a mathematical vector
+         * @brief Class representing a mathematical vector
          */
         class Vector {
         private:

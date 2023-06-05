@@ -34,6 +34,10 @@
 namespace LouLib {
     namespace Odometry {
 
+        /**
+         * @class TwoSensorOdom
+         * @brief Class used as an odometry tracker with two sensors
+         */
         class TwoSensorOdom : public AbstractOdometry{
         private:
 

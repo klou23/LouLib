@@ -34,7 +34,7 @@ namespace LouLib {
 
         /**
          * @class PIDController
-         * Class used as a Proportional-Integral-Derivative controller
+         * @brief Class used as a Proportional-Integral-Derivative controller
          */
         class PIDController {
         private:

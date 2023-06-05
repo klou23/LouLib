@@ -34,7 +34,7 @@ namespace LouLib {
 
         /**
          * @class RamseteController
-         * Class used as a RAMSETE non-linear, time-varying uncycle controller
+         * @brief Class used as a RAMSETE non-linear, time-varying uncycle controller
          */
         class RamseteController {
         private:

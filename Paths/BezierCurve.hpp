@@ -32,6 +32,10 @@
 namespace LouLib {
     namespace Paths {
 
+        /**
+         * @class BezierCurve
+         * @brief Class representing a cubic bezier spline curve
+         */
         class BezierCurve {
         private:
             Math::Point2D P0;

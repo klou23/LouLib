@@ -30,6 +30,10 @@
 namespace LouLib {
     namespace Filters {
 
+        /**
+         * @class AbstractFilter
+         * @brief Interface for all of the filter classes
+         */
         class AbstractFilter {
         public:
 

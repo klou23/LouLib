@@ -34,6 +34,10 @@
 namespace LouLib {
     namespace Odometry {
 
+        /**
+         * @class AbstractOdometry
+         * @brief Abstract class representing an odometry tracker
+         */
         class AbstractOdometry {
         protected:
 

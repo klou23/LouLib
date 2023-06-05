@@ -34,7 +34,7 @@ namespace LouLib {
 
         /**
          * @class TBHController
-         * Class used as a Take-Back Half controller
+         * @brief Class used as a Take-Back Half controller
          */
         class TBHController {
         private:

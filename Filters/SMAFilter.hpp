@@ -33,6 +33,10 @@
 namespace LouLib {
     namespace Filters {
 
+        /**
+         * @class SMAFilter
+         * @brief Class used as a simple moving average filter
+         */
         class SMAFilter : public AbstractFilter{
         private:
             int readingCount;

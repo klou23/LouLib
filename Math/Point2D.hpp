@@ -32,6 +32,10 @@
 namespace LouLib {
     namespace Math {
 
+        /**
+         * @class Point2D
+         * @brief Class representing a point in 2D space
+         */
         class Point2D {
         private:
             Units::Length x;

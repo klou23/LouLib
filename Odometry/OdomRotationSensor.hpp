@@ -34,6 +34,10 @@
 namespace LouLib {
     namespace Odometry{
 
+        /**
+         * @class OdomRotationSensor
+         * @brief Class representing a rotation sensor being used as an odometry tracking sensor
+         */
         class OdomRotationSensor : public AbstractOdomSensor{
         private:
             pros::Rotation rotationSensor;

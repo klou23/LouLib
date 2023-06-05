@@ -34,6 +34,10 @@
 namespace LouLib {
     namespace Math {
 
+        /**
+         * @class Matrix
+         * @brief Class representing a mathematical matrix
+         */
         class Matrix {
         private:
             class MatrixRow{

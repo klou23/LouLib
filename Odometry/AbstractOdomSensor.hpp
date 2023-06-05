@@ -31,6 +31,11 @@
 
 namespace LouLib{
     namespace Odometry{
+
+        /**
+         * @class AbstractOdomSensor
+         * @brief Abstract class representing an odometry tracking sensor
+         */
         class AbstractOdomSensor {
         public:
             /**
