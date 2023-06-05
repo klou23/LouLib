@@ -1,5 +1,5 @@
 /**
- * Mass.hpp
+ * @file Mass.hpp
  *
  * Definition of Mass units
  *

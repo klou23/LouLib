@@ -1,5 +1,5 @@
 /**
- * Controllers.hpp
+ * @file Controllers.hpp
  *
  * Include file for the Controllers namespace
  *
@@ -26,6 +26,12 @@
 
 #ifndef LOULIB_CONTROLLERS_HPP
 #define LOULIB_CONTROLLERS_HPP
+
+/**
+ * @namespace LouLib::Controllers
+ * @brief Contains all of LouLib's controllers
+ */
+namespace LouLib::Controllers{}
 
 #include "PIDController.hpp"
 #include "TBHController.hpp"

@@ -1,5 +1,5 @@
 /**
- * EWMAFilter.hpp
+ * @file EWMAFilter.hpp
  *
  * Header file for the EWMAFilter class
  *

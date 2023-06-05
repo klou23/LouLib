@@ -1,5 +1,5 @@
 /**
- * Utility.hpp
+ * @file Utility.hpp
  *
  * Include file for the Utility namespace
  *
@@ -26,6 +26,12 @@
 
 #ifndef LOULIB_UTILITY_HPP
 #define LOULIB_UTILITY_HPP
+
+/**
+ * @namespace LouLib::Utility
+ * @brief Contains all of LouLib's utility classes
+ */
+namespace LouLib::Utility{}
 
 #include "Logger.hpp"
 

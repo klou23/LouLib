@@ -1,5 +1,5 @@
 /**
- * Point2D.hpp
+ * @file Point2D.hpp
  *
  * Header file for the Point2D class
  *

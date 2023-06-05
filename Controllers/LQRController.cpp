@@ -1,5 +1,5 @@
 /**
- * LQRController.cpp
+ * @file LQRController.cpp
  *
  * Implementation file for the LQRController class
  *

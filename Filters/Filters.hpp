@@ -1,5 +1,5 @@
 /**
- * Filters.hpp
+ * @file Filters.hpp
  *
  * Include file for the Filters namespace
  *
@@ -26,6 +26,12 @@
 
 #ifndef LOULIB_FILTERS_HPP
 #define LOULIB_FILTERS_HPP
+
+/**
+ * @namespace LouLib::Filters
+ * @brief Contains all of LouLib's filters
+ */
+namespace LouLib::Filters{}
 
 #include "SMAFilter.hpp"
 #include "SMMFilter.hpp"

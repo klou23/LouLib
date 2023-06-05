@@ -1,5 +1,5 @@
 /**
- * AngularVelocity.hpp
+ * @file AngularVelocity.hpp
  *
  * Definition of AngularVelocity units
  *

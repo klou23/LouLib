@@ -1,5 +1,5 @@
 /**
- * UnitMath.hpp
+ * @file UnitMath.hpp
  *
  * Contains mathematical operators for units
  *

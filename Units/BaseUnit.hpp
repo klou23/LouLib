@@ -1,5 +1,5 @@
 /**
- * BaseUnit.hpp
+ * @file BaseUnit.hpp
  *
  * Contains the BaseUnit class.
  *

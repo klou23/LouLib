@@ -1,5 +1,5 @@
 /**
- * Paths.hpp
+ * @file Paths.hpp
  *
  * Include file for the Paths namespace
  *
@@ -26,6 +26,12 @@
 
 #ifndef LOULIB_PATHS_HPP
 #define LOULIB_PATHS_HPP
+
+/**
+ * @namespace LouLib::Paths
+ * @brief Contains all of LouLib's path planning functionality
+ */
+namespace LouLib::Paths{}
 
 #include "BezierCurve.hpp"
 #include "Trajectory.hpp"

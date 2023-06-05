@@ -1,5 +1,5 @@
 /**
- * AbstractOdometry.cpp
+ * @file AbstractOdometry.cpp
  *
  * Implementation file for the AbstractOdometry class
  *

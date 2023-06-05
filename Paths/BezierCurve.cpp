@@ -1,5 +1,5 @@
 /**
- * BezierCurve.cpp
+ * @file BezierCurve.cpp
  *
  * Implementation file for the BezierCurve class
  *

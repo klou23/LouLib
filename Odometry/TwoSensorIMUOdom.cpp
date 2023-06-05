@@ -1,5 +1,5 @@
 /**
- * TwoSensorIMUOdom.cpp
+ * @file TwoSensorIMUOdom.cpp
  *
  * Implementation file for the TwoSensorIMUOdom class
  *

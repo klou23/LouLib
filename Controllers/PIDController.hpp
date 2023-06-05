@@ -1,5 +1,5 @@
 /**
- * PIDController.hpp
+ * @file PIDController.hpp
  *
  * Header file for the PIDController class
  *

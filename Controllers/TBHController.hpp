@@ -1,5 +1,5 @@
 /**
- * TBHController.hpp
+ * @file TBHController.hpp
  *
  * Header file for the TBHController class
  *

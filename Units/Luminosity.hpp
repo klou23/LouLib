@@ -1,5 +1,5 @@
 /**
- * Luminosity.hpp
+ * @file Luminosity.hpp
  *
  * Definition of Luminosity units
  *

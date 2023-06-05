@@ -1,5 +1,5 @@
 /**
- * ThreeSensorIMUOdom.hpp
+ * @file ThreeSensorIMUOdom.hpp
  *
  * Header file for the ThreeSensorIMUOdom class
  *

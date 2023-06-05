@@ -1,5 +1,5 @@
 /**
- * AbstractOdometry.hpp
+ * @file AbstractOdometry.hpp
  *
  * Header file for the AbstractOdometry class
  *

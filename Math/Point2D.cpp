@@ -1,5 +1,5 @@
 /**
- * Point2D.cpp
+ * @file Point2D.cpp
  *
  * Implementation file for the Point2D class
  *

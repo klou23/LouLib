@@ -1,5 +1,5 @@
 /**
- * Pose2D.hpp
+ * @file Pose2D.hpp
  *
  * Header file for the Pose2D class
  *

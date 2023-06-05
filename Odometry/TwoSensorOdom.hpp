@@ -1,5 +1,5 @@
 /**
- * TwoSensorOdom.hpp
+ * @file TwoSensorOdom.hpp
  *
  * Header file for the TwoSensorOdom class
  *

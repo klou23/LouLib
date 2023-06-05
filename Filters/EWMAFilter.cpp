@@ -1,5 +1,5 @@
 /**
- * EWMAFilter.cpp
+ * @file EWMAFilter.cpp
  *
  * Implementation file for the EWMAFilter class
  *

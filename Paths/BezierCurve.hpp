@@ -1,5 +1,5 @@
 /**
- * BezierCurve.hpp
+ * @file BezierCurve.hpp
  *
  * Header file for the BezierCurve class
  *

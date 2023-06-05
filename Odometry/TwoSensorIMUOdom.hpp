@@ -1,5 +1,5 @@
 /**
- * TwoSensorIMUOdom.hpp
+ * @file TwoSensorIMUOdom.hpp
  *
  * Header file for the TwoSensorIMUOdom class
  *

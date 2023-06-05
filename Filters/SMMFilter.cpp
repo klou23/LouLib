@@ -1,5 +1,5 @@
 /**
- * SMMFilter.cpp
+ * @file SMMFilter.cpp
  *
  * Implementation file for the SMMFilter class
  *

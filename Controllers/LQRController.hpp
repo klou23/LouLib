@@ -1,5 +1,5 @@
 /**
- * LQRController.hpp
+ * @file LQRController.hpp
  *
  * Header file for the LQRController class
  *

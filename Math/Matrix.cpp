@@ -1,5 +1,5 @@
 /**
- * Matrix.cpp
+ * @file Matrix.cpp
  *
  * Implementation file for the Matrix class
  *
