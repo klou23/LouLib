@@ -34,6 +34,10 @@
 namespace LouLib {
     namespace Math {
 
+        /**
+         * @class Matrix
+         * @brief Class representing a mathematical matrix
+         */
         class Matrix {
         private:
             class MatrixRow{
@@ -106,6 +110,10 @@ namespace LouLib {
              */
             Matrix(std::vector<std::vector<double>> matrixData);
 
+            /**
+             * Constructs a new matrix with the given data
+             * @param matrixData matrix data
+             */
             Matrix(std::vector<MatrixRow> matrixData);
 
             /**
@@ -186,6 +194,9 @@ namespace LouLib {
              */
             Matrix inverse();
 
+            /**
+             * Returns a string representation of the matrix
+             */
             std::string toString();
 
         };

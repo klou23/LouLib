@@ -34,6 +34,10 @@
 namespace LouLib {
     namespace Odometry{
 
+        /**
+         * @class OdomRotationSensor
+         * @brief Class representing a rotation sensor being used as an odometry tracking sensor
+         */
         class OdomRotationSensor : public AbstractOdomSensor{
         private:
             pros::Rotation rotationSensor;
@@ -41,10 +45,22 @@ namespace LouLib {
             double gearRatio;
 
         public:
+            /**
+             * Constructor
+             * @param port
+             * @param reversed
+             * @param wheelDiam
+             */
             OdomRotationSensor(int port, bool reversed, const Units::Length &wheelDiam);
 
+            /**
+             * Sets the gear ratio of the sensor
+             */
             void setGearRatio(int wheelSide, int sensorSide) override;
 
+            /**
+             * Returns the position of the sensor
+             */
             Units::Length getPosition() override;
         };
 

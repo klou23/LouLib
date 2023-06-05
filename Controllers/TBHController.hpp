@@ -32,6 +32,10 @@
 namespace LouLib {
     namespace Controllers {
 
+        /**
+         * @class TBHController
+         * @brief Class used as a Take-Back Half controller
+         */
         class TBHController {
         private:
             double k;
@@ -44,16 +48,36 @@ namespace LouLib {
             double prevError;
 
         public:
+            /**
+             * Creates a new TBH controller with the given gain
+             */
             explicit TBHController(double _k);
 
+            /**
+             * Sets the target value of the controller
+             */
             void setSetpoint(double _setpoint);
 
+            /**
+             * Sets the range of possible output values
+             * @param _minOutput lower bound for output values
+             * @param _maxOutput upper bound for output values
+             */
             void setOutputRange(double _minOutput, double _maxOutput);
 
+            /**
+             * Sets the amount of time between each controller loop
+             */
             void setDeltaTime(Units::Time _deltaTime);
 
+            /**
+             * Returns the computed control input
+             */
             double getOutput();
 
+            /**
+             * Update the PID controller with the new measured value
+             */
             void update(double measurement);
 
         };

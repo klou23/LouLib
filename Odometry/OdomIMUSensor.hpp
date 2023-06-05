@@ -33,14 +33,24 @@
 namespace LouLib {
     namespace Odometry {
 
+        /**
+         * @class OdomIMUSensor
+         * @brief Class used as an IMU sensor used for odometry
+         */
         class OdomIMUSensor {
         private:
             pros::IMU imuSensor;
             double scale;
 
         public:
+            /**
+             * Constructor
+             */
             explicit OdomIMUSensor(int port, double scale = 1);
 
+            /**
+             * Returns the heading of the sensor
+             */
             Units::Angle getHeading();
         };
 

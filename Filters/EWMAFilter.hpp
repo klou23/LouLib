@@ -32,6 +32,10 @@
 namespace LouLib {
     namespace Filters {
 
+        /**
+         * @class EWMAFilter
+         * @brief Class used as an exponentially weighted moving average filter
+         */
         class EWMAFilter : public AbstractFilter{
         private:
             double k;
@@ -39,10 +43,21 @@ namespace LouLib {
 
         public:
 
+            /**
+             * Constructor
+             * @param k weighting constant. Range: (0,1]
+             * @param startVal initial sensor reading
+             */
             explicit EWMAFilter(double k, double startVal = 0);
 
+            /**
+             * Adds a new reading into the filter's data set
+             */
             void addReading(double reading) override;
 
+            /**
+             * Returns the output value of the filter
+             */
             double getOutput() override;
 
         };

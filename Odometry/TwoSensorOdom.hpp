@@ -34,6 +34,10 @@
 namespace LouLib {
     namespace Odometry {
 
+        /**
+         * @class TwoSensorOdom
+         * @brief Class used as an odometry tracker with two sensors
+         */
         class TwoSensorOdom : public AbstractOdometry{
         private:
 
@@ -47,11 +51,23 @@ namespace LouLib {
 
         public:
 
+            /**
+             * Constructor
+             * @param leftSensor
+             * @param rightSensor
+             * @param trackWidth
+             */
             TwoSensorOdom(AbstractOdomSensor &leftSensor, AbstractOdomSensor &rightSensor,
                           Units::Length trackWidth);
 
+            /**
+             * Sets the current pose of the robot
+             */
             void setPose(Math::Pose2D newPose) override;
 
+            /**
+             * Computes the new position of the robot
+             */
             void update() override;
 
         };

@@ -34,6 +34,10 @@
 namespace LouLib {
     namespace Odometry {
 
+        /**
+         * @class ThreeSensorOdom
+         * @brief Class used as an odometry tracker with three sensors
+         */
         class ThreeSensorOdom : public AbstractOdometry{
         private:
 
@@ -51,12 +55,27 @@ namespace LouLib {
             Units::Length lastBack = 0_in;
 
         public:
+
+            /**
+             * Constructor
+             * @param leftSensor
+             * @param rightSensor
+             * @param trackWidth
+             * @param backSensor
+             * @param backDist
+             */
             ThreeSensorOdom(AbstractOdomSensor &leftSensor, AbstractOdomSensor &rightSensor,
                             const Units::Length &trackWidth, AbstractOdomSensor &backSensor,
                             const Units::Length &backDist);
 
+            /**
+             * Sets the current pose of the robot
+             */
             void setPose(Math::Pose2D newPose) override;
 
+            /**
+             * Computes the new position of the robot
+             */
             void update() override;
 
         };

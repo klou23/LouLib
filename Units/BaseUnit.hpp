@@ -33,6 +33,10 @@
 namespace LouLib {
     namespace Units {
 
+        /**
+         * @class BaseUnit
+         * @brief Template class for all unit types
+         */
         template<typename lengthDim, typename massDim, typename timeDim, typename currentDim,
                  typename temperatureDim, typename substanceDim, typename luminosityDim,
                  typename angleDim>

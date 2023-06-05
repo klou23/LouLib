@@ -32,6 +32,10 @@
 namespace LouLib {
     namespace Controllers {
 
+        /**
+         * @class LQRController
+         * @brief Class used as a Linear Quadratic Regulator controller
+         */
         class LQRController {
         private:
             Math::Matrix A;
@@ -48,13 +52,31 @@ namespace LouLib {
             void solveDARE();
 
         public:
+            /**
+             * Creates a new LQR controller with the given matrices
+             * @param a System matrix A
+             * @param b System matrix B
+             * @param q Weighting matrix Q
+             * @param r Weighting matrix R
+             */
             LQRController(const Math::Matrix &a, const Math::Matrix &b,
                           const Math::Matrix &q, const Math::Matrix &r);
 
+            /**
+             * Returns the computed gain matrix
+             */
             Math::Matrix getK();
 
+            /**
+             * Computes the optimal control
+             * @param x The current output vector
+             * @return The optimal input vector
+             */
             Math::Vector computeControl(Math::Vector x);
 
+            /**
+             * Setter for the reference or desired state of the system
+             */
             void setReference(const Math::Vector &_reference);
         };
 

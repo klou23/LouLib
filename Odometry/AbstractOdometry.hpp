@@ -34,6 +34,10 @@
 namespace LouLib {
     namespace Odometry {
 
+        /**
+         * @class AbstractOdometry
+         * @brief Abstract class representing an odometry tracker
+         */
         class AbstractOdometry {
         protected:
 
@@ -41,12 +45,24 @@ namespace LouLib {
 
         public:
 
+            /**
+             * Constructor
+             */
             AbstractOdometry();
 
+            /**
+             * Sets the current pose of the robot
+             */
             virtual void setPose(Math::Pose2D newPose) = 0;
 
+            /**
+             * Computes the new position of the robot
+             */
             virtual void update() = 0;
 
+            /**
+             * Returns the current pose of the robot
+             */
             Math::Pose2D getPose();
         };
 

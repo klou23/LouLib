@@ -36,7 +36,7 @@ namespace LouLib {
 
         /**
          * @class Vector
-         * @brief A class representing a mathematical vector
+         * @brief Class representing a mathematical vector
          */
         class Vector {
         private:
@@ -91,6 +91,9 @@ namespace LouLib {
              */
             Vector normalize();
 
+            /**
+             * Returns a string representation of the vector
+             */
             std::string toString();
         };
 

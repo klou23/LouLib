@@ -32,18 +32,39 @@
 
 namespace LouLib{
     namespace Utility{
+
+        /**
+         * @class Logger
+         * @brief Class used to log data to micro-SD card
+         */
         class Logger {
         private:
             std::ofstream fout;
 
         public:
 
+            /**
+             * Constructor
+             */
             Logger();
 
+            /**
+             * Constructor
+             * @param logFile
+             * @param fileType
+             */
             Logger(std::string logFile, std::string fileType = "txt");
 
+            /**
+             * Logs a new message to the file
+             * @param message the message to be logged
+             * @param endl whether or not to add a new line after the message
+             */
             void log(std::string message, bool endl = false);
 
+            /**
+             * Closes the logger
+             */
             void close();
         };
     }

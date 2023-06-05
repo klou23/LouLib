@@ -32,6 +32,10 @@
 namespace LouLib {
     namespace Math {
 
+        /**
+         * @class Pose2D
+         * @brief Class representing a pose in 2D space
+         */
         class Pose2D {
         private:
             Units::Length x;
@@ -40,18 +44,39 @@ namespace LouLib {
 
         public:
 
+            /**
+             * Constructor
+             */
             Pose2D(const Units::Length &x, const Units::Length &y, const Units::Angle &theta);
 
+            /**
+             * Getter for x
+             */
             const Units::Length &getX() const;
 
+            /**
+             * Setter for x
+             */
             void setX(const Units::Length &x);
 
+            /**
+             * Getter for y
+             */
             const Units::Length &getY() const;
 
+            /**
+             * Setter for y
+             */
             void setY(const Units::Length &y);
 
+            /**
+             * Getter for theta
+             */
             const Units::Angle &getTheta() const;
 
+            /**
+             * Setter for theta
+             */
             void setTheta(const Units::Angle &theta);
 
         };
