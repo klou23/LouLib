@@ -33,8 +33,14 @@ namespace LouLib{
     namespace Odometry{
         class AbstractOdomSensor {
         public:
+            /**
+             * Sets the gear ratio of the sensor
+             */
             virtual void setGearRatio(int wheelSide, int sensorSide) = 0;
 
+            /**
+             * Returns the position of the sensor
+             */
             virtual Units::Length getPosition() = 0;
         };
     }

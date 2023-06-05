@@ -39,8 +39,14 @@ namespace LouLib {
             double scale;
 
         public:
+            /**
+             * Constructor
+             */
             explicit OdomIMUSensor(int port, double scale = 1);
 
+            /**
+             * Returns the heading of the sensor
+             */
             Units::Angle getHeading();
         };
 

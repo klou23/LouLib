@@ -50,11 +50,24 @@ namespace LouLib {
 
         public:
 
+            /**
+             * Constructor
+             * @param leftSensor
+             * @param rightSensor
+             * @param trackWidth
+             * @param imuSensor
+             */
             TwoSensorIMUOdom(AbstractOdomSensor &leftSensor, AbstractOdomSensor &rightSensor,
                              Units::Length trackWidth, OdomIMUSensor &imuSensor);
 
+            /**
+             * Sets the current pose of the robot
+             */
             void setPose(Math::Pose2D newPose) override;
 
+            /**
+             * Computes the new position of the robot
+             */
             void update() override;
 
         };

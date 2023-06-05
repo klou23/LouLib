@@ -41,11 +41,24 @@ namespace LouLib {
             double gearRatio;
 
         public:
+            /**
+             * Constructor
+             * @param motorPort
+             * @param gearset
+             * @param motorReversed
+             * @param wheelDiam
+             */
             OdomMotorSensor(int motorPort, pros::motor_gearset_e_t gearset, bool motorReversed,
                             const Units::Length &wheelDiam);
 
+            /**
+             * Sets the gear ratio of the sensor
+             */
             void setGearRatio(int wheelSide, int sensorSide) override;
 
+            /**
+             * Returns the position of the sensor
+             */
             Units::Length getPosition() override;
         };
 
