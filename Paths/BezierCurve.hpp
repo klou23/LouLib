@@ -40,9 +40,20 @@ namespace LouLib {
             Math::Point2D P3;
 
         public:
+
+            /**
+             * Constructor
+             * @param p0 control point
+             * @param p1 control point
+             * @param p2 control point
+             * @param p3 control point
+             */
             BezierCurve(const Math::Point2D &p0, const Math::Point2D &p1, const Math::Point2D &p2,
                         const Math::Point2D &p3);
 
+            /**
+             * Returns the value of the bezier
+             */
             Math::Point2D evaluate(double t);
 
             /**
