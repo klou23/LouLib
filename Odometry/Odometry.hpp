@@ -1,5 +1,5 @@
 /**
- * Odometry.hpp
+ * @file Odometry.hpp
  *
  * Include file for the Odometry namespace
  *
@@ -26,6 +26,12 @@
 
 #ifndef LOULIB_ODOMETRY_HPP
 #define LOULIB_ODOMETRY_HPP
+
+/**
+ * @namespace LouLib::Odometry
+ * @brief Contains all of LouLib's odometry functionality
+ */
+ namespace LouLib::Odometry{}
 
 #include "AbstractOdometry.hpp"
 #include "AbstractOdomSensor.hpp"

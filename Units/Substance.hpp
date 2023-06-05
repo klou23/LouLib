@@ -1,5 +1,5 @@
 /**
- * Substance.hpp
+ * @file Substance.hpp
  *
  * Definition of Substance units
  *

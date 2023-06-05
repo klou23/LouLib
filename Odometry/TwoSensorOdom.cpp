@@ -1,5 +1,5 @@
 /**
- * TwoSensorOdom.cpp
+ * @file TwoSensorOdom.cpp
  *
  * Implementation file for the TwoSensorOdom class
  *

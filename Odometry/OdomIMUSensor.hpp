@@ -1,5 +1,5 @@
 /**
- * OdomIMUSensor.hpp
+ * @file OdomIMUSensor.hpp
  *
  * Header file for the OdomIMUSensor class
  *

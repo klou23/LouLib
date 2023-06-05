@@ -1,5 +1,5 @@
 /**
- * ThreeSensorOdom.hpp
+ * @file ThreeSensorOdom.hpp
  *
  * Header file for the ThreeSensorOdom class
  *

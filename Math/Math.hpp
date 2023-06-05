@@ -1,5 +1,5 @@
 /**
- * Math.hpp
+ * @file Math.hpp
  *
  * Include file for the Math namespace
  *
@@ -26,6 +26,12 @@
 
 #ifndef LOULIB_MATH_HPP
 #define LOULIB_MATH_HPP
+
+/**
+ * @namespace LouLib::Math
+ * @brief Contains all of LouLib's math functionality
+ */
+namespace LouLib::Math{}
 
 #include "MathConstants.hpp"
 #include "MathFunctions.hpp"

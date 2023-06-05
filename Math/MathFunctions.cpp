@@ -1,5 +1,5 @@
 /**
- * MathFunctions.cpp
+ * @file MathFunctions.cpp
  *
  * Contains implementations of commonly used math functions
  *

@@ -1,5 +1,5 @@
 /**
- * AngularJerk.hpp
+ * @file AngularJerk.hpp
  *
  * Definition of AngularJerk units
  *

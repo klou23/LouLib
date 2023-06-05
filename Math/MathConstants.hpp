@@ -1,5 +1,5 @@
 /**
- * MathConstants.hpp
+ * @file MathConstants.hpp
  *
  * Contains commonly used math constants
  *

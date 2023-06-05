@@ -1,5 +1,5 @@
 /**
- * SMAFilter.hpp
+ * @file SMAFilter.hpp
  *
  * Implementation file for the SMAFilter class
  *

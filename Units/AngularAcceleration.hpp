@@ -1,5 +1,5 @@
 /**
- * AngularAcceleration.hpp
+ * @file AngularAcceleration.hpp
  *
  * Definition of AngularAcceleration units
  *

@@ -1,5 +1,5 @@
 /**
- * PIDController.cpp
+ * @file PIDController.cpp
  *
  * Implementation file for the PIDController class
  *

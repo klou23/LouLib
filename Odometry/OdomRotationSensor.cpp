@@ -1,5 +1,5 @@
 /**
- * OdomRotationSensor.cpp
+ * @file OdomRotationSensor.cpp
  *
  * Implementation file for the OdomRotationSensor class
  *

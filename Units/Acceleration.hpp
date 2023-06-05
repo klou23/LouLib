@@ -1,5 +1,5 @@
 /**
- * Acceleration.hpp
+ * @file Acceleration.hpp
  *
  * Definition of Acceleration units
  *

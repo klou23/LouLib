@@ -1,5 +1,5 @@
 /**
- * Jerk.hpp
+ * @file Jerk.hpp
  *
  * Definition of Jerk units
  *

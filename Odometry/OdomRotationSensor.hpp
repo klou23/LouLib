@@ -1,5 +1,5 @@
 /**
- * OdomRotationSensor.hpp
+ * @file OdomRotationSensor.hpp
  *
  * Header file for the OdomRotationSensor class
  *

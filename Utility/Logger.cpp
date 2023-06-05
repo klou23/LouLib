@@ -1,5 +1,5 @@
 /**
- * Logger.cpp
+ * @file Logger.cpp
  *
  * Implementation file for the Logger class
  *

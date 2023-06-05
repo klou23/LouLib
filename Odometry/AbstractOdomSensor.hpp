@@ -1,5 +1,5 @@
 /**
- * AbstractOdomSensor.hpp
+ * @file AbstractOdomSensor.hpp
  *
  * Header file for the AbstractOdomSensor class
  *

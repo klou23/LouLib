@@ -1,5 +1,5 @@
 /**
- * OdomMotorSensor.cpp
+ * @file OdomMotorSensor.cpp
  *
  * Implementation file for the OdomMotorSensor class
  *

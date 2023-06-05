@@ -1,5 +1,5 @@
 /**
- * RamseteController.hpp
+ * @file RamseteController.hpp
  *
  * Header file for the RamseteController class
  *

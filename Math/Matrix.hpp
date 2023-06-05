@@ -1,5 +1,5 @@
 /**
- * Matrix.hpp
+ * @file Matrix.hpp
  *
  * Header file for the Matrix class
  *

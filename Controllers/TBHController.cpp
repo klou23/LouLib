@@ -1,5 +1,5 @@
 /**
- * TBHController.cpp
+ * @file TBHController.cpp
  *
  * Implementation file for the TBHController class
  *

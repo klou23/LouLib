@@ -1,5 +1,5 @@
 /**
- * Torque.hpp
+ * @file Torque.hpp
  *
  * Definition of Torque units
  *

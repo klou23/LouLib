@@ -1,5 +1,5 @@
 /**
- * SMMFilter.hpp
+ * @file SMMFilter.hpp
  *
  * Header file for the SMMFilter class
  *

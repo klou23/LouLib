@@ -1,5 +1,5 @@
 /**
- * RamseteController.cpp
+ * @file RamseteController.cpp
  *
  * Implementation file for the RamseteController class
  *

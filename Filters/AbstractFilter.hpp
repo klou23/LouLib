@@ -1,5 +1,5 @@
 /**
- * AbstractFilter.hpp
+ * @file AbstractFilter.hpp
  *
  * Header file for the AbstractFilter class
  *

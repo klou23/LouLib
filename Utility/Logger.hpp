@@ -1,5 +1,5 @@
 /**
- * Logger.hpp
+ * @file Logger.hpp
  *
  * Header file for the Logger class
  *

@@ -1,5 +1,5 @@
 /**
- * Angle.hpp
+ * @file Angle.hpp
  *
  * Definition of Angle units
  *

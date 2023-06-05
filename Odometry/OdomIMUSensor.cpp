@@ -1,5 +1,5 @@
 /**
- * OdomIMUSensor.cpp
+ * @file OdomIMUSensor.cpp
  *
  * Implementation file for the OdomIMUSensor class
  *

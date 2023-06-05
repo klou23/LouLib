@@ -1,5 +1,5 @@
 /**
- * Units.hpp
+ * @file Units.hpp
  *
  * Include file for the Units namespace
  *
@@ -26,6 +26,12 @@
 
 #ifndef LOULIB_UNITS_HPP
 #define LOULIB_UNITS_HPP
+
+/**
+ * @namespace LouLib::Units
+ * @brief Contains all of LouLib's units functionality
+ */
+namespace LouLib::Units{}
 
 #include "Acceleration.hpp"
 #include "Angle.hpp"

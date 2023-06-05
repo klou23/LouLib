@@ -1,5 +1,5 @@
 /**
- * OdomMotorSensor.hpp
+ * @file OdomMotorSensor.hpp
  *
  * Header file for the OdomMotorSensor class
  *

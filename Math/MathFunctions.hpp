@@ -1,5 +1,5 @@
 /**
- * MathFunctions.hpp
+ * @file MathFunctions.hpp
  *
  * Contains commonly used math functions
  *
