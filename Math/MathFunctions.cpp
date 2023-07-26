@@ -53,5 +53,25 @@ namespace LouLib{
             return constrainAngle(diff);
         }
 
+        int binpow(int a, int b){
+            int sol = 1;
+            while(b > 0){
+                if(b&1) sol *= a;
+                b >>= 1;
+                a *= a;
+            }
+            return sol;
+        }
+
+        long long binpow(long long a, long long b){
+            long long sol = 1;
+            while(b > 0){
+                if(b&1) sol *= a;
+                b >>= 1;
+                a *= a;
+            }
+            return sol;
+        }
+
     }
 }
