@@ -149,7 +149,7 @@ namespace LouLib {
             /**
              * Gets a specified row vector of the matrix
              */
-             Vector getRow(int i);
+            Vector getRow(int i);
 
             /**
              * Gets the number of rows of the matrix
@@ -172,6 +172,16 @@ namespace LouLib {
              * Calculates the frobenius norm of the matrix
              */
             double norm();
+
+            /**
+             * Computes the row echelon form of the matrix using Gauss-Jordan elimination
+             */
+            Matrix ref();
+
+            /**
+             * Computes the reduced row echelon form of the matrix using Gauss-Jordan elimination
+             */
+            Matrix rref();
 
             /**
              * Calculates the determinant of the matrix using the Laplace expansion

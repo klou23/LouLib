@@ -25,6 +25,7 @@
  */
 
 #include "Matrix.hpp"
+#include "MathConstants.hpp"
 
 namespace LouLib {
     namespace Math {
@@ -202,6 +203,66 @@ namespace LouLib {
                 if(i != rows()-1) sol += ",\n";
             }
             sol += "}";
+            return sol;
+        }
+
+        Matrix Matrix::ref() {
+            Matrix sol(data);
+            int row = 0;
+            for(int col = 0; col < cols(); col++){
+                //find pivot using partial pivoting
+                double maxVal = Math::EPS;
+                int k = -1;
+                for(int i = row; i < rows(); i++){
+                    if(std::abs(sol[i][col]) > maxVal){
+                        k = i;
+                        maxVal = std::abs(sol[i][col]);
+                    }
+                }
+                if(k == -1){
+                    continue;   //column is already reduced
+                }
+                //swap rows
+                std::swap(sol[row], sol[k]);
+
+                //make pivot 1
+                for(int j = 0; j < cols(); j++){
+                    sol[row][j] /= sol[row][col];
+                }
+
+                //clear column below
+                for(int i = row+1; i < rows(); i++){
+                    double mult = sol[i][col] / sol[row][col];
+                    for(int j = 0; j < cols(); j++){
+                        sol[i][j] -= mult * sol[row][j];
+                    }
+                }
+
+                row++;
+                if(row == rows()) break;
+            }
+            return sol;
+        }
+
+        Matrix Matrix::rref() {
+            Matrix sol = ref();
+            for(int row = rows()-1; row >= 0; row--){
+                //find pivot column
+                int col = 0;
+                while(col < cols() && sol[row][col] < Math::EPS){
+                    col++;
+                }
+                if(col == cols()){
+                    continue;   //row is empty
+                }
+                //create zeroes above the pivot
+                for(int i = row-1; i >= 0; i--){
+                    double mult = sol[i][col];
+                    for(int j = 0; j < cols(); j++){
+                        sol[i][j] -= mult * sol[row][j];
+                    }
+                }
+            }
             return sol;
         }
 
