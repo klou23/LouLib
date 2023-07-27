@@ -287,6 +287,52 @@ namespace LouLib {
             return sol;
         }
 
+        int Matrix::rank() {
+            Matrix A(data);
+            int n = A.rows();
+            int m = A.cols();
+
+            int rank = 0;
+            std::vector<bool> row_selected(n, false);
+            for(int i = 0; i < m; i++) {
+                int j;
+                for(j = 0; j < n; ++j) {
+                    if(!row_selected[j] && std::abs(A[j][i]) > Math::EPS) break;
+                }
+
+                if(j != n) {
+                    rank++;
+                    row_selected[j] = true;
+                    for(int p = i + 1; p < m; p++) A[j][p] /= A[j][i];
+                    for(int k = 0; k < n; k++) {
+                        if (k != j && std::abs(A[k][i]) > Math::EPS) {
+                            for(int p = i + 1; p < m; p++){
+                                A[k][p] -= A[j][p] * A[k][i];
+                            }
+                        }
+                    }
+                }
+            }
+            return rank;
+        }
+
+        Matrix Matrix::getAugmented(const Matrix &o) {
+            if(rows() != o.rows()){
+                throw std::invalid_argument("Matrix rows don't match");
+            }
+            int n = rows();
+            int m1 = cols();
+            int m2 = o.cols();
+            Matrix sol(n, m1+m2);
+            for(int i = 0; i < n; i++){
+                for(int j = 0; j < m1+m2; j++){
+                    if(j < m1) sol[i][j] = data[i][j];
+                    else sol[i][j] = o[i][j-m1];
+                }
+            }
+            return sol;
+        }
+
         Matrix operator+(const Matrix &a, const Matrix &b) {
             if(a.rows() != b.rows() || a.cols() != b.cols()){
                 throw std::invalid_argument("Matrix dimensions don't match");

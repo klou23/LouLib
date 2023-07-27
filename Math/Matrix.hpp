@@ -200,6 +200,19 @@ namespace LouLib {
             double cofactor(int i, int j);
 
             /**
+             * Computes the rank of the matrix using Gaussian elimination
+             */
+            int rank();
+
+            /**
+             * Returns the matrix after another matrix is augmented to it. Does
+             * not change the matrix
+             * @param o Matrix to augment
+             * @throws std::invalid_argument if the number of rows don't match
+             */
+            Matrix getAugmented(const Matrix &o);
+
+            /**
              * Computes the matrix inverse using the adjoint matrix
              */
             Matrix inverse();
