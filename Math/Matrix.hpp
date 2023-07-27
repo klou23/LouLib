@@ -213,7 +213,9 @@ namespace LouLib {
             Matrix getAugmented(const Matrix &o);
 
             /**
-             * Computes the matrix inverse using the adjoint matrix
+             * Computes the matrix inverse using Gauss-Jordan elimination of an
+             * augmented matrix.
+             * @throws std::logic_error if the matrix is not invertible
              */
             Matrix inverse();
 

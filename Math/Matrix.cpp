@@ -201,20 +201,25 @@ namespace LouLib {
         }
 
         Matrix Matrix::inverse() {
-            Matrix cofactorMatrix(rows(), cols());
-            for(int i = 0; i < rows(); i++){
-                for(int j = 0; j < cols(); j++){
-                    cofactorMatrix[i][j] = cofactor(i, j);
+            if(rows() != cols() || det() < Math::EPS){
+                throw std::logic_error("Matrix not invertible");
+            }
+            int n = rows();
+            Matrix identity(n, n);
+            for(int i = 0; i < n; i++){
+                for(int j = 0; j < n; j++){
+                    identity[i][j] = i==j ? 1 : 0;
                 }
             }
-            Matrix sol = cofactorMatrix.transpose();
-            double determinant = det();
-            for(int i = 0; i < sol.rows(); i++){
-                for(int j = 0; j < sol.cols(); j++){
-                    sol[i][j] /= determinant;
+            Matrix augmented = getAugmented(identity);
+            Matrix reducedAug = augmented.rref();
+            Matrix sol(n, n);
+            for(int i = 0; i < n; i++){
+                for(int j = 0; j < n; j++){
+                    sol[i][j] = reducedAug[i][j+n];
                 }
             }
-            return sol;
+            return reducedAug;
         }
 
         std::string Matrix::toString() {
