@@ -51,6 +51,20 @@ namespace LouLib{
            * Must be in degrees
            */
            double angleDifference(double final, double initial);
+
+           /**
+            * Computes a power of integers using binary exponentiation
+            * @return a^b
+            * @warning If there is a risk of integer overflow, it is better to
+            * use the long long version of this function
+            */
+            int binpow(int a, int b);
+
+            /**
+             * Computes a power of integers using binary exponentiation
+             * @return a^b
+             */
+             long long binpow(long long a, long long b);
     }
 }
 

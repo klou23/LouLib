@@ -149,7 +149,7 @@ namespace LouLib {
             /**
              * Gets a specified row vector of the matrix
              */
-             Vector getRow(int i);
+            Vector getRow(int i);
 
             /**
              * Gets the number of rows of the matrix
@@ -174,7 +174,17 @@ namespace LouLib {
             double norm();
 
             /**
-             * Calculates the determinant of the matrix using the Laplace expansion
+             * Computes the row echelon form of the matrix using Gaussian elimination
+             */
+            Matrix ref();
+
+            /**
+             * Computes the reduced row echelon form of the matrix using Gauss-Jordan elimination
+             */
+            Matrix rref();
+
+            /**
+             * Calculates the determinant of the matrix using Gaussian elimination
              * @throws std::invalid_argument if the matrix is not square
              */
             double det();
@@ -190,7 +200,22 @@ namespace LouLib {
             double cofactor(int i, int j);
 
             /**
-             * Computes the matrix inverse using the adjoint matrix
+             * Computes the rank of the matrix using Gaussian elimination
+             */
+            int rank();
+
+            /**
+             * Returns the matrix after another matrix is augmented to it. Does
+             * not change the matrix
+             * @param o Matrix to augment
+             * @throws std::invalid_argument if the number of rows don't match
+             */
+            Matrix getAugmented(const Matrix &o);
+
+            /**
+             * Computes the matrix inverse using Gauss-Jordan elimination of an
+             * augmented matrix.
+             * @throws std::logic_error if the matrix is not invertible
              */
             Matrix inverse();
 
