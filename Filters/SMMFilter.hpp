@@ -30,6 +30,7 @@
 #include <queue>
 #include <set>
 #include "AbstractFilter.hpp"
+#include <ext/pb_ds/assoc_container.hpp>
 
 namespace LouLib {
     namespace Filters {
@@ -42,7 +43,9 @@ namespace LouLib {
         private:
             int readingCount;
             std::queue<double> data;
-            std::multiset<double> sortedData;
+            __gnu_pbds::tree<std::pair<double,int>, __gnu_pbds::null_type, std::less<>,
+                    __gnu_pbds::rb_tree_tag, __gnu_pbds::tree_order_statistics_node_update> sortedData;
+            int ostCounter = 0;
 
         public:
 
