@@ -32,10 +32,12 @@ namespace LouLib {
         SMMFilter::SMMFilter(int readingCount) : readingCount(readingCount) {}
 
         void SMMFilter::addReading(double reading) {
-            sortedData.insert(reading);
+            sortedData.insert(std::make_pair(reading, ostCounter++));
+            ostCounter %= int(1e9);
             data.push(reading);
             if(data.size() > readingCount){
-                sortedData.erase(sortedData.find(data.front()));
+                auto iter = sortedData.lower_bound(std::make_pair(data.front(), -1));
+                sortedData.erase(iter);
                 data.pop();
             }
         }
@@ -43,14 +45,12 @@ namespace LouLib {
         double SMMFilter::getOutput() {
             int n = (int) sortedData.size();
 
-            auto iter = sortedData.begin();
-            std::advance(iter, n/2);
-
-            if(n%2 == 0){
-                auto iter2 = iter--;
-                return double(*iter + *iter2) / 2;
+            auto iter = sortedData.find_by_order(n/2);
+            if(n&1){
+                return (*iter).first;
             }else{
-                return *iter;
+                auto iter2 = iter--;
+                return ((*iter).first + (*iter2).first)/2.0;
             }
         }
 
