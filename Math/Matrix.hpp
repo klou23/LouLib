@@ -174,7 +174,7 @@ namespace LouLib {
             double norm();
 
             /**
-             * Computes the row echelon form of the matrix using Gauss-Jordan elimination
+             * Computes the row echelon form of the matrix using Gaussian elimination
              */
             Matrix ref();
 
@@ -184,7 +184,7 @@ namespace LouLib {
             Matrix rref();
 
             /**
-             * Calculates the determinant of the matrix using the Laplace expansion
+             * Calculates the determinant of the matrix using Gaussian elimination
              * @throws std::invalid_argument if the matrix is not square
              */
             double det();

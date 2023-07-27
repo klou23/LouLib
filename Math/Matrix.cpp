@@ -149,16 +149,37 @@ namespace LouLib {
             if(rows() != cols()){
                 throw std::invalid_argument("Cannot calculate determinant of a non-square matrix");
             }
-
-            if(rows() == 2){
-                return data[0][0]*data[1][1]-data[1][0]*data[0][1];
+            Matrix a(data);
+            int n = a.rows();
+            double det = 1;
+            for(int i = 0; i < n; i++) {
+                int k = i;
+                for (int j = i+1; j < n; j++) {
+                    if (std::abs(a[j][i]) > std::abs(a[k][i])){
+                        k = j;
+                    }
+                }
+                if (std::abs(a[k][i]) < Math::EPS) {
+                    det = 0;
+                    break;
+                }
+                std::swap(a[i], a[k]);
+                if (i != k){
+                    det = -det;
+                }
+                det *= a[i][i];
+                for (int j = i+1; j < n; j++){
+                    a[i][j] /= a[i][i];
+                }
+                for (int j = 0; j < n; j++){
+                    if (j != i && std::abs(a[j][i]) > Math::EPS){
+                        for (k=i+1; k<n; ++k){
+                            a[j][k] -= a[i][k] * a[j][i];
+                        }
+                    }
+                }
             }
-
-            double sol = 0;
-            for(int i = 0; i < rows(); i++){
-                sol += (data[i][0]) * cofactor(i, 0);
-            }
-            return sol;
+            return det;
         }
 
         Matrix Matrix::minor(int i, int j){
